@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የአማርኛ መጽሐፍ ቅዱስ</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter for UI and Noto Serif Ethiopic for Bible text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f4; /* stone-100 */
+        }
+        
+        /* Apply the beautiful Ethiopic font to the reading area and sidebars */
+        #main-content-area, #books-list, #chapters-list {
+            font-family: 'Noto Serif Ethiopic', serif;
+        }
+
+        #nav-panel h1, #nav-panel h2, #nav-panel footer, .tab-button {
+             font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom scrollbar for a cleaner look */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f5f5f4; /* stone-100 */
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d6d3d1; /* stone-300 */
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e; /* stone-400 */
+        }
+
+        /* Style for the active/selected list items */
+        .active-item {
+            background-color: #e7e5e4; /* stone-200 */
+            font-weight: 700;
+            color: #1c1917; /* stone-900 */
+        }
+        
+        /* Style for the active tab */
+        .tab-active {
+            border-bottom-color: #a16207; /* yellow-600 */
+            color: #1c1917; /* stone-900 */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="antialiased text-stone-800">
+
+    <div id="app-container" class="flex h-screen bg-stone-50">
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden fixed top-4 left-4 z-30 bg-white p-2 rounded-md shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+
+        <!-- Left Navigation Panel (Books and Chapters) -->
+        <nav id="nav-panel" class="w-80 md:w-96 bg-white border-r border-stone-200 flex flex-col transition-transform transform -translate-x-full md:translate-x-0 fixed md:static h-full z-20">
+            <!-- Header -->
+            <header class="p-4 border-b border-stone-200 text-center">
+                <h1 class="text-xl font-bold text-stone-900">የአማርኛ መጽሐፍ ቅዱስ</h1>
+                <p class="text-sm text-stone-500">Amharic Bible</p>
+            </header>
+            
+            <!-- Two-column layout for Books and Chapters -->
+            <div class="flex flex-grow overflow-hidden">
+                <!-- Books List -->
+                <aside id="books-sidebar" class="w-1/2 border-r border-stone-200 flex flex-col">
+                    <div class="flex-shrink-0 border-b border-stone-200">
+                         <div class="flex">
+                            <button id="old-testament-tab" class="tab-button flex-1 p-3 text-sm text-stone-600 border-b-2 border-transparent hover:bg-stone-50">ብሉይ ኪዳን</button>
+                            <button id="new-testament-tab" class="tab-button flex-1 p-3 text-sm text-stone-600 border-b-2 border-transparent hover:bg-stone-50">አዲስ ኪዳን</button>
+                         </div>
+                    </div>
+                    <ul id="books-list" class="divide-y divide-stone-100 overflow-y-auto custom-scrollbar flex-grow">
+                        <!-- Book list will be populated by JavaScript -->
+                    </ul>
+                </aside>
+                
+                <!-- Chapters List -->
+                <aside id="chapters-sidebar" class="w-1/2 overflow-y-auto custom-scrollbar">
+                     <h2 class="text-lg font-semibold p-3 sticky top-0 bg-white border-b border-stone-200">ምዕራፎች</h2>
+                    <ul id="chapters-list" class="divide-y divide-stone-100">
+                        <!-- Chapter list will be populated by JavaScript -->
+                    </ul>
+                </aside>
+            </div>
+
+            <footer class="p-3 border-t border-stone-200 text-center text-xs text-stone-400">
+                <p>&copy; 2024 Bible Viewer</p>
+            </footer>
+        </nav>
+
+        <!-- Main Content (Bible Text Display) -->
+        <main class="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto custom-scrollbar">
+            <div id="main-content-area" class="max-w-4xl mx-auto">
+                <h1 id="chapter-title" class="text-4xl font-bold mb-6 text-stone-900 border-b pb-4"></h1>
+                <div id="text-container" class="text-2xl leading-loose space-y-4">
+                    <!-- Bible text will be displayed here -->
+                    <div id="initial-message" class="text-center text-stone-500 mt-20">
+                        <p class="text-lg">ለመጀመር እባክዎ ከመጽሐፍት ዝርዝር ውስጥ ይምረጡ።</p>
+                        <p style="font-family: 'Inter', sans-serif;">Please select a book from the list to begin.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- APPLICATION STATE ---
+        let BOOKS = []; // This will be populated from books.json
+        let currentTestament = 'old'; // 'old' or 'new'
+        let currentBookData = null;
+        let currentBookNumber = -1;
+        let currentChapterNumber = -1;
+        
+        // --- DOM ELEMENTS ---
+        const booksListEl = document.getElementById('books-list');
+        const chaptersListEl = document.getElementById('chapters-list');
+        const chapterTitleEl = document.getElementById('chapter-title');
+        const textContainerEl = document.getElementById('text-container');
+        const initialMessageEl = document.getElementById('initial-message');
+        const navPanel = document.getElementById('nav-panel');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const appContainer = document.getElementById('app-container');
+        const oldTestamentTab = document.getElementById('old-testament-tab');
+        const newTestamentTab = document.getElementById('new-testament-tab');
+
+        // --- FUNCTIONS ---
+
+        /**
+         * Populates the "Books" sidebar based on the selected testament.
+         * @param {string} testament - The selected testament ('old' or 'new').
+         */
+        function loadBookList(testament) {
+            booksListEl.innerHTML = ''; // Clear existing list
+            
+            const filteredBooks = BOOKS.filter(book => book.testament === testament);
+
+            if (filteredBooks.length === 0) {
+                 booksListEl.innerHTML = `<li class="p-3 text-stone-400 text-center">መጽሐፍት አልተገኙም</li>`;
+                 return;
+            }
+
+            filteredBooks.forEach(book => {
+                const li = document.createElement('li');
+                li.className = 'p-3 cursor-pointer hover:bg-stone-100 transition-colors duration-200';
+                li.textContent = book.am_name; 
+                li.dataset.bookNumber = book.number;
+                
+                li.addEventListener('click', () => handleBookSelection(book));
+                
+                booksListEl.appendChild(li);
+            });
+        }
+
+        /**
+         * Handles the logic when a user clicks on a book name.
+         * @param {object} book - The book object from the BOOKS array.
+         */
+        async function handleBookSelection(book) {
+            // No need to reload if same book is clicked, but allow re-clicking to show chapters if they are hidden
+            if (currentBookNumber === book.number && chaptersListEl.innerHTML !== '') {
+                return; 
+            }
+
+            currentBookNumber = book.number;
+            
+            // Show a loading state
+            chaptersListEl.innerHTML = '<li class="p-3 text-stone-500">በመጫን ላይ...</li>';
+            textContainerEl.innerHTML = '';
+            chapterTitleEl.textContent = '';
+            if(initialMessageEl) initialMessageEl.style.display = 'none';
+
+            // Update active state in UI
+            updateActiveBook();
+
+            try {
+                const response = await fetch(`./data/am/${book.filename}`);
+                if (!response.ok) {
+                    throw new Error(`መጽሐፉን መጫን አልተቻለም፡ ${response.statusText}`);
+                }
+                currentBookData = await response.json();
+                
+                loadChapterList(currentBookData.chapters);
+                if (currentBookData.chapters.length > 0) {
+                    handleChapterSelection(1);
+                }
+
+            } catch (error) {
+                console.error("Error fetching book data:", error);
+                chaptersListEl.innerHTML = `<li class="p-3 text-red-500">ስህተት ተከስቷል</li>`;
+                textContainerEl.innerHTML = `<p class="text-red-500 text-center">${error.message}</p>`;
+            }
+             // On mobile, close nav panel after selecting a book
+             if (window.innerWidth < 768) {
+                navPanel.classList.add('-translate-x-full');
+            }
+        }
+
+        /**
+         * Populates the "Chapters" sidebar.
+         * @param {Array} chapters - The array of chapter objects.
+         */
+        function loadChapterList(chapters) {
+            chaptersListEl.innerHTML = ''; 
+            if (!chapters || chapters.length === 0) {
+                 chaptersListEl.innerHTML = '<li class="p-3 text-stone-400 text-center">ምዕራፎች የሉም</li>';
+                 return;
+            }
+            chapters.forEach(chapter => {
+                const li = document.createElement('li');
+                li.className = 'p-3 cursor-pointer hover:bg-stone-100 transition-colors duration-200 text-center';
+                li.textContent = `ምዕራፍ ${chapter.chapter}`;
+                li.dataset.chapterNumber = chapter.chapter;
+                li.addEventListener('click', () => handleChapterSelection(chapter.chapter));
+                chaptersListEl.appendChild(li);
+            });
+        }
+        
+        /**
+         * Handles logic when a user clicks a chapter.
+         * @param {number} chapterNum - The selected chapter number.
+         */
+        function handleChapterSelection(chapterNum) {
+            currentChapterNumber = chapterNum;
+            const chapterData = currentBookData.chapters.find(c => c.chapter === chapterNum);
+
+            if (chapterData) {
+                displayChapter(chapterData);
+                updateActiveChapter();
+            }
+             if (window.innerWidth < 768) {
+                navPanel.classList.add('-translate-x-full');
+            }
+        }
+
+        /**
+         * Renders verses in the main content area.
+         * @param {object} chapterData - The object for the selected chapter.
+         */
+        function displayChapter(chapterData) {
+            chapterTitleEl.textContent = `${currentBookData.book_name_am} - ምዕራፍ ${chapterData.chapter}`;
+            textContainerEl.innerHTML = '';
+
+            if (chapterData.verses.length === 0) {
+                textContainerEl.innerHTML = '<p class="text-stone-500">ለዚህ ምዕራፍ ምንም ጽሑፍ የለም።</p>';
+                return;
+            }
+
+            chapterData.verses.forEach(verse => {
+                const p = document.createElement('p');
+                p.className = 'mb-2';
+                
+                const verseNumberSpan = document.createElement('span');
+                verseNumberSpan.className = 'text-sm font-bold text-stone-500 align-super mr-2';
+                verseNumberSpan.textContent = verse.verse;
+                
+                const verseTextNode = document.createTextNode(verse.text);
+                
+                p.appendChild(verseNumberSpan);
+                p.appendChild(verseTextNode);
+                
+                textContainerEl.appendChild(p);
+            });
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        /**
+         * Updates visual styling for the selected book.
+         */
+        function updateActiveBook() {
+            document.querySelectorAll('#books-list li').forEach(item => {
+                item.classList.remove('active-item');
+                if (parseInt(item.dataset.bookNumber) === currentBookNumber) {
+                    item.classList.add('active-item');
+                }
+            });
+        }
+
+        /**
+         * Updates visual styling for the selected chapter.
+         */
+        function updateActiveChapter() {
+             document.querySelectorAll('#chapters-list li').forEach(item => {
+                item.classList.remove('active-item');
+                if (parseInt(item.dataset.chapterNumber) === currentChapterNumber) {
+                    item.classList.add('active-item');
+                }
+            });
+        }
+
+        /**
+         * Switches the active testament tab.
+         * @param {string} testamentToShow - 'old' or 'new'
+         */
+        function switchTestament(testamentToShow) {
+            currentTestament = testamentToShow;
+            loadBookList(currentTestament);
+            
+            // Clear selections when switching testaments
+            chaptersListEl.innerHTML = '';
+            chapterTitleEl.textContent = '';
+            textContainerEl.innerHTML = '';
+            if(initialMessageEl) initialMessageEl.style.display = 'block';
+            currentBookNumber = -1;
+            
+            // Update tab styles
+            oldTestamentTab.classList.toggle('tab-active', testamentToShow === 'old');
+            newTestamentTab.classList.toggle('tab-active', testamentToShow === 'new');
+        }
+        
+        // --- EVENT LISTENERS ---
+        mobileMenuBtn.addEventListener('click', () => {
+            navPanel.classList.toggle('-translate-x-full');
+        });
+
+        appContainer.addEventListener('click', (e) => {
+            if (!navPanel.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                 navPanel.classList.add('-translate-x-full');
+            }
+        });
+
+        oldTestamentTab.addEventListener('click', () => switchTestament('old'));
+        newTestamentTab.addEventListener('click', () => switchTestament('new'));
+
+        // --- INITIALIZATION ---
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('./books.json');
+                if (!response.ok) {
+                    throw new Error(`'books.json' not found or could not be loaded.`);
+                }
+                BOOKS = await response.json();
+                
+                // Set the default tab and load its books
+                switchTestament('old');
+
+            } catch (error) {
+                console.error("Initialization Failed:", error);
+                const container = document.getElementById('app-container');
+                container.innerHTML = `<div class="w-full h-full flex items-center justify-center p-4 text-center text-red-600 bg-red-50">
+                    <p><strong>ስህተት፡</strong> አፕሊኬሽኑን መጀመር አልተቻለም።<br><br>${error.message}</p>
+                </div>`;
+            }
+        });
+    </script>
+</body>
+</html>
