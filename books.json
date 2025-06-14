@@ -75,5 +75,12 @@
     "am_name": "መጽሐፈ ነገሥት ቀዳማዊ",
     "filename": "11-1 kings.json",
     "testament": "old"
+  },
+  {
+    "number": 12,
+    "en_name": "2 Kings",
+    "am_name": "መጽሐፈ ነገሥት ካልዕ",
+    "filename": "12-2 kings.json",
+    "testament": "old"
   }
 ]
