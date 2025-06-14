@@ -1,23 +1,30 @@
 [
-    {
-        "number": 1,
-        "en_name": "Genesis",
-        "am_name": "ኦሪት ዘፍጥረት",
-        "filename": "01-genesis.json",
-        "testament": "old"
-    },
-    {
-        "number": 2,
-        "en_name": "Exodus",
-        "am_name": "ኦሪት ዘጸአት",
-        "filename": "02-exodus.json",
-        "testament": "old"
-    },
-    {
-        "number": 3,
-        "en_name": "Leviticus",
-        "am_name": "ኦሪት ዘሌዋውያን",
-        "filename": "03-leviticus.json",
-        "testament": "old"
-    }
+  {
+    "number": 1,
+    "en_name": "Genesis",
+    "am_name": "ኦሪት ዘፍጥረት",
+    "filename": "01-genesis.json",
+    "testament": "old"
+  },
+  {
+    "number": 2,
+    "en_name": "Exodus",
+    "am_name": "ኦሪት ዘጸአት",
+    "filename": "02-exodus.json",
+    "testament": "old"
+  },
+  {
+    "number": 3,
+    "en_name": "Leviticus",
+    "am_name": "ኦሪት ዘሌዋውያን",
+    "filename": "03-leviticus.json",
+    "testament": "old"
+  },
+  {
+    "number": 4,
+    "en_name": "Numbers",
+    "am_name": "ኦሪት ዘኍልቍ",
+    "filename": "04-numbers.json",
+    "testament": "old"
+  }
 ]
