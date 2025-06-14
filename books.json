@@ -26,5 +26,12 @@
     "am_name": "ኦሪት ዘኍልቍ",
     "filename": "04-numbers.json",
     "testament": "old"
+  },
+  {
+    "number": 5,
+    "en_name": "Deuteronomy",
+    "am_name": "ኦሪት ዘዳግም",
+    "filename": "05-deuteronomy.json",
+    "testament": "old"
   }
 ]
