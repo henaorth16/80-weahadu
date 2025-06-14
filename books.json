@@ -12,5 +12,12 @@
         "am_name": "ኦሪት ዘጸአት",
         "filename": "02-exodus.json",
         "testament": "old"
+    },
+    {
+        "number": 3,
+        "en_name": "Leviticus",
+        "am_name": "ኦሪት ዘሌዋውያን",
+        "filename": "03-leviticus.json",
+        "testament": "old"
     }
 ]
