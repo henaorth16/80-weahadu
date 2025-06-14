@@ -47,5 +47,12 @@
     "am_name": "መጽሐፈ መሳፍንት",
     "filename": "07-judges.json",
     "testament": "old"
+  },
+  {
+    "number": 8,
+    "en_name": "Ruth",
+    "am_name": "መጽሐፈ ሩት",
+    "filename": "08-ruth.json",
+    "testament": "old"
   }
 ]
