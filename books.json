@@ -40,5 +40,12 @@
     "am_name": "መጽሐፈ ኢያሱ ወልደ ነዌ",
     "filename": "06-joshua.json",
     "testament": "old"
+  },
+  {
+    "number": 7,
+    "en_name": "Judges",
+    "am_name": "መጽሐፈ መሳፍንት",
+    "filename": "07-judges.json",
+    "testament": "old"
   }
 ]
