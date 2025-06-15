@@ -397,5 +397,12 @@
     "am_name": "ትንቢተ ዓሞጽ",
     "filename": "52-amos.json",
     "testament": "old"
+  },
+  {
+    "number": 53,
+    "en_name": "Micah",
+    "am_name": "ትንቢተ ሚክያስ",
+    "filename": "53-micah.json",
+    "testament": "old"
   }
 ]
