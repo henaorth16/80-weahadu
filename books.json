@@ -411,5 +411,12 @@
     "am_name": "ትንቢተ ኢዮኤል",
     "filename": "54-joel.json",
     "testament": "old"
+  },
+  {
+    "number": 55,
+    "en_name": "Jonah",
+    "am_name": "ትንቢተ ዮናስ",
+    "filename": "55-jonah.json",
+    "testament": "old"
   }
 ]
