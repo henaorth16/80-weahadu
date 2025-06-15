@@ -383,5 +383,12 @@
     "am_name": "ትንቢተ ዳንኤል",
     "filename": "50-daniel.json",
     "testament": "old"
+  },
+  {
+    "number": 51,
+    "en_name": "Hosea",
+    "am_name": "ትንቢተ ሆሴዕ",
+    "filename": "51-hosea.json",
+    "testament": "old"
   }
 ]
