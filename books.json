@@ -376,5 +376,12 @@
     "am_name": "ትንቢተ ሕዝቅኤል",
     "filename": "49-eekiel.json",
     "testament": "old"
+  },
+  {
+    "number": 50,
+    "en_name": "Daniel",
+    "am_name": "ትንቢተ ዳንኤል",
+    "filename": "50-daniel.json",
+    "testament": "old"
   }
 ]
