@@ -56,39 +56,18 @@
     "testament": "old"
   },
   {
+    "number": 8,
+    "en_name": "Matthew",
+    "am_name": "የማቴዎስ ወንጌል",
+    "filename": "08-matthew.json",
+    "testament": "new"
+  },
+  {
     "number": 9,
     "en_name": "1 Samuel",
     "am_name": "መጽሐፈ ሳሙኤል ቀዳማዊ",
     "filename": "09-1samuel.json",
     "testament": "old"
-  },
-  {
-    "number": 10,
-    "en_name": "2 Samuel",
-    "am_name": "መጽሐፈ ሳሙኤል ካልዕ",
-    "filename": "10-2 samuel.json",
-    "testament": "old"
-  },
-  {
-    "number": 11,
-    "en_name": "1 Kings",
-    "am_name": "መጽሐፈ ነገሥት ቀዳማዊ",
-    "filename": "11-1 kings.json",
-    "testament": "old"
-  },
-  {
-    "number": 12,
-    "en_name": "2 Kings",
-    "am_name": "መጽሐፈ ነገሥት ካልዕ",
-    "filename": "12-2 kings.json",
-    "testament": "old"
-  },
-  {
-    "number": 8,
-     "en_name": "Matthew",
-    "am_name": "የማቴዎስ ወንጌል",
-    "filename": "08-matthew.json",
-    "testament": "new"
   },
   {
     "number": 9,
@@ -99,6 +78,13 @@
   },
   {
     "number": 10,
+    "en_name": "2 Samuel",
+    "am_name": "መጽሐፈ ሳሙኤል ካልዕ",
+    "filename": "10-2 samuel.json",
+    "testament": "old"
+  },
+  {
+    "number": 10,
     "en_name": "Luke",
     "am_name": "የሉቃስ ወንጌል",
     "filename": "10-luke.json",
@@ -106,10 +92,24 @@
   },
   {
     "number": 11,
+    "en_name": "1 Kings",
+    "am_name": "መጽሐፈ ነገሥት ቀዳማዊ",
+    "filename": "11-1 kings.json",
+    "testament": "old"
+  },
+  {
+    "number": 11,
     "en_name": "John",
     "am_name": "የዮሐንስ ወንጌል",
     "filename": "11-john.json",
     "testament": "new"
+  },
+  {
+    "number": 12,
+    "en_name": "2 Kings",
+    "am_name": "መጽሐፈ ነገሥት ካልዕ",
+    "filename": "12-2 kings.json",
+    "testament": "old"
   },
   {
     "number": 12,
@@ -271,5 +271,12 @@
     "am_name": "የዮሐንስ ራእይ",
     "filename": "34-revelation.json",
     "testament": "new"
+  },
+  {
+    "number": 35,
+    "en_name": "1 Chronicles",
+    "am_name": "መጽሐፈ ዜና መዋዕል ቀዳማዊ",
+    "filename": "35-1 chronicles.json",
+    "testament": "old"
   }
 ]
