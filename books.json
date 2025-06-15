@@ -341,5 +341,12 @@
     "am_name": "መጽሐፈ መክብብ",
     "filename": "44-ecclesiastes.json",
     "testament": "old"
+  },
+  {
+    "number": 45,
+    "en_name": "Song of Solomon",
+    "am_name": "ማሕልየ መሓልይ ዘሰሎሞን",
+    "filename": "45-song of solomon.json",
+    "testament": "old"
   }
 ]
