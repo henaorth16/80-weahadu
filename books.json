@@ -460,5 +460,12 @@
     "am_name": "ትንቢተ ሚልክያስ",
     "filename": "61-malachi.json",
     "testament": "old"
+  },
+  {
+    "number": 62,
+    "en_name": "Obadiah",
+    "am_name": "ትንቢተ ዐብድዩ",
+    "filename": "62-obadiah.json",
+    "testament": "old"
   }
 ]
