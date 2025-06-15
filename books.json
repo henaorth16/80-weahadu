@@ -432,5 +432,12 @@
     "am_name": "ትንቢተ ዕንባቆም",
     "filename": "57-habakkuk.json",
     "testament": "old"
+  },
+  {
+    "number": 58,
+    "en_name": "Zephaniah",
+    "am_name": "ትንቢተ ሶፎንያስ",
+    "filename": "58-zephaniah.json",
+    "testament": "old"
   }
 ]
