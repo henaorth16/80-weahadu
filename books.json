@@ -348,5 +348,12 @@
     "am_name": "ማሕልየ መሓልይ ዘሰሎሞን",
     "filename": "45-song of solomon.json",
     "testament": "old"
+  },
+  {
+    "number": 46,
+    "en_name": "Isaiah",
+    "am_name": "ትንቢተ ኢሳይያስ",
+    "filename": "46-isaiah.json",
+    "testament": "old"
   }
 ]
