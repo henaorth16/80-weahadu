@@ -292,5 +292,12 @@
     "am_name": "መጽሐፈ ዕዝራ",
     "filename": "37-ezra.json",
     "testament": "old"
+  },
+  {
+    "number": 38,
+    "en_name": "Nehemiah",
+    "am_name": "መጽሐፈ ነሐምያ",
+    "filename": "38-nehemiah.json",
+    "testament": "old"
   }
 ]
