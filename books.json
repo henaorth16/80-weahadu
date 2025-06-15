@@ -285,5 +285,12 @@
     "am_name": "መጽሐፈ ዜና መዋዕል ካልዕ",
     "filename": "36-2 chronicles.json",
     "testament": "old"
+  },
+  {
+    "number": 37,
+    "en_name": "Ezra",
+    "am_name": "መጽሐፈ ዕዝራ",
+    "filename": "37-ezra.json",
+    "testament": "old"
   }
 ]
