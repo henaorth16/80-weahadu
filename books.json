@@ -278,5 +278,12 @@
     "am_name": "መጽሐፈ ዜና መዋዕል ቀዳማዊ",
     "filename": "35-1 chronicles.json",
     "testament": "old"
+  },
+  {
+    "number": 36,
+    "en_name": "2 Chronicles",
+    "am_name": "ኦሪት ዘፍጥረት",
+    "filename": "36-2 chronicles.json",
+    "testament": "old"
   }
 ]
