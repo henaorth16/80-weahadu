@@ -453,5 +453,12 @@
     "am_name": "ትንቢተ ዘካርያስ",
     "filename": "60-zechariah.json",
     "testament": "old"
+  },
+  {
+    "number": 61,
+    "en_name": "Malachi",
+    "am_name": "ትንቢተ ሚልክያስ",
+    "filename": "61-malachi.json",
+    "testament": "old"
   }
 ]
