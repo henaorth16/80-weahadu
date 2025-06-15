@@ -404,5 +404,12 @@
     "am_name": "ትንቢተ ሚክያስ",
     "filename": "53-micah.json",
     "testament": "old"
+  },
+  {
+    "number": 54,
+    "en_name": "Joel",
+    "am_name": "ትንቢተ ኢዮኤል",
+    "filename": "54-joel.json",
+    "testament": "old"
   }
 ]
