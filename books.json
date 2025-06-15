@@ -313,5 +313,19 @@
     "am_name": "መጽሐፈ ኢዮብ",
     "filename": "40-job.json",
     "testament": "old"
+  },
+  {
+    "number": 41,
+    "en_name": "Psalms",
+    "am_name": "መዝሙረ ዳዊት",
+    "filename": "41-psalms.json",
+    "testament": "old"
+  },
+  {
+    "number": 42,
+    "en_name": "Proverbs",
+    "am_name": "መጽሐፈ ምሳሌ",
+    "filename": "42-proverbs.json",
+    "testament": "old"
   }
 ]
