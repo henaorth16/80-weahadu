@@ -439,5 +439,19 @@
     "am_name": "ትንቢተ ሶፎንያስ",
     "filename": "58-zephaniah.json",
     "testament": "old"
+  },
+  {
+    "number": 59,
+    "en_name": "Haggai",
+    "am_name": "ትንቢተ ሐጌ",
+    "filename": "59-haggai.json",
+    "testament": "old"
+  },
+  {
+    "number": 60,
+    "en_name": "Zechariah",
+    "am_name": "ትንቢተ ዘካርያስ",
+    "filename": "60-zechariah.json",
+    "testament": "old"
   }
 ]
