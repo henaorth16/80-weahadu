@@ -334,5 +334,12 @@
     "am_name": "መጽሐፈ ተግሣጽ",
     "filename": "43-tegsatsh.json",
     "testament": "old"
+  },
+  {
+    "number": 44,
+    "en_name": "Ecclesiastes",
+    "am_name": "መጽሐፈ መክብብ",
+    "filename": "44-ecclesiastes.json",
+    "testament": "old"
   }
 ]
