@@ -425,5 +425,12 @@
     "am_name": "ትንቢተ ናሖም",
     "filename": "56-nahum.json",
     "testament": "old"
+  },
+  {
+    "number": 57,
+    "en_name": "Habakkuk",
+    "am_name": "ትንቢተ ዕንባቆም",
+    "filename": "57-habakkuk.json",
+    "testament": "old"
   }
 ]
