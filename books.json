@@ -369,5 +369,12 @@
     "am_name": "ሰቆቃወ ኤርምያስ",
     "filename": "48-lamentations.json",
     "testament": "old"
+  },
+  {
+    "number": 49,
+    "en_name": "Eekiel",
+    "am_name": "ትንቢተ ሕዝቅኤል",
+    "filename": "49-eekiel.json",
+    "testament": "old"
   }
 ]
