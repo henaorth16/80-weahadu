@@ -299,5 +299,12 @@
     "am_name": "መጽሐፈ ነሐምያ",
     "filename": "38-nehemiah.json",
     "testament": "old"
+  },
+  {
+    "number": 39,
+    "en_name": "Esther",
+    "am_name": "መጽሐፈ አስቴር",
+    "filename": "39-esther.json",
+    "testament": "old"
   }
 ]
