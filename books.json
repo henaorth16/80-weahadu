@@ -84,192 +84,192 @@
     "testament": "old"
   },
   {
-    "number": 8,
-     "en_name": "Matthew",
-    "am_name": "የማቴዎስ ወንጌል",
-    "filename": "08-matthew.json",
-    "testament": "new"
-  },
-  {
-    "number": 9,
-    "en_name": "Mark",
-    "am_name": "የማርቆስ ወንጌል",
-    "filename": "09-mark.json",
-    "testament": "new"
-  },
-  {
-    "number": 10,
-    "en_name": "Luke",
-    "am_name": "የሉቃስ ወንጌል",
-    "filename": "10-luke.json",
-    "testament": "new"
-  },
-  {
-    "number": 11,
-    "en_name": "John",
-    "am_name": "የዮሐንስ ወንጌል",
-    "filename": "11-john.json",
-    "testament": "new"
-  },
-  {
-    "number": 12,
-    "en_name": "Act",
-    "am_name": "የሐዋርያት ሥራ",
-    "filename": "12-act.json",
-    "testament": "new"
-  },
-  {
     "number": 13,
-    "en_name": "Romans",
-    "am_name": "ወደ ሮሜ ሰዎች",
-    "filename": "13-romans.json",
+    "en_name": "Matthew",
+    "am_name": "የማቴዎስ ወንጌል",
+    "filename": "13-matthew.json",
     "testament": "new"
   },
   {
     "number": 14,
-    "en_name": "1_Corinthians",
-    "am_name": "1ኛ ቆሮንቶስ",
-    "filename": "14-1_corinthians.json",
+    "en_name": "Mark",
+    "am_name": "የማርቆስ ወንጌል",
+    "filename": "14-mark.json",
     "testament": "new"
   },
   {
     "number": 15,
-    "en_name": "2_Corinthians",
-    "am_name": "2ኛ ቆሮንቶስ",
-    "filename": "15-2_corinthians.json",
+    "en_name": "Luke",
+    "am_name": "የሉቃስ ወንጌል",
+    "filename": "15-luke.json",
     "testament": "new"
   },
   {
     "number": 16,
-    "en_name": "Galatians",
-    "am_name": "ወደ ገላትያ ሰዎች",
-    "filename": "16-galatians.json",
+    "en_name": "John",
+    "am_name": "የዮሐንስ ወንጌል",
+    "filename": "16-john.json",
     "testament": "new"
   },
   {
     "number": 17,
-    "en_name": "Ephesians",
-    "am_name": "ወደ ኤፌሶን ሰዎች",
-    "filename": "17-ephesians.json",
+    "en_name": "Acts",
+    "am_name": "የሐዋርያት ሥራ",
+    "filename": "17-acts.json",
     "testament": "new"
   },
   {
     "number": 18,
-    "en_name": "Philippians",
-    "am_name": "ወደ ፊልጵስዩስ ሰዎች",
-    "filename": "18-philippians.json",
+    "en_name": "Romans",
+    "am_name": "ወደ ሮሜ ሰዎች",
+    "filename": "18-romans.json",
     "testament": "new"
   },
   {
     "number": 19,
-    "en_name": "Colossians",
-    "am_name": "ወደ ወደ ቆላስይስ ሰዎች",
-    "filename": "19-colossians.json",
+    "en_name": "1_Corinthians",
+    "am_name": "1ኛ ወደ ቆሮንቶስ ሰዎች",
+    "filename": "19-1_corinthians.json",
     "testament": "new"
   },
   {
     "number": 20,
-    "en_name": "1_Thessalonians",
-    "am_name": "1ኛ ወደ ተሰሎንቄ",
-    "filename": "20-1_thessalonians.json",
+    "en_name": "2_Corinthians",
+    "am_name": "2ኛ ወደ ቆሮንቶስ ሰዎች",
+    "filename": "20-2_corinthians.json",
     "testament": "new"
   },
   {
     "number": 21,
-    "en_name": "2_Thessalonians",
-    "am_name": "2ኛ ተሰሎንቄ",
-    "filename": "21-2_thessalonians.json",
+    "en_name": "Galatians",
+    "am_name": "ወደ ገላትያ ሰዎች",
+    "filename": "21-galatians.json",
     "testament": "new"
   },
   {
     "number": 22,
-    "en_name": "1_Timothy",
-    "am_name": "1ኛ ወደ ጢሞቴዎስ",
-    "filename": "22-1_timothy.json",
+    "en_name": "Ephesians",
+    "am_name": "ወደ ኤፌሶን ሰዎች",
+    "filename": "22-ephesians.json",
     "testament": "new"
   },
-  {
+   {
     "number": 23,
-    "en_name": "2_Timothy",
-    "am_name": "2ኛ ወደ ጢሞቴዎስ",
-    "filename": "23-2_timothy.json",
+    "en_name": "philippians",
+    "am_name": "ወደ ፊልጵስዩስ ሰዎች",
+    "filename": "23-philippians.json",
     "testament": "new"
   },
   {
     "number": 24,
-    "en_name": "Titus",
-    "am_name": "ወደ ቲቶ",
-    "filename": "24-titus.json",
+    "en_name": "colossians",
+    "am_name": "ወደ ቆላስይስ ሰዎች",
+    "filename": "24-colossians.json",
     "testament": "new"
   },
   {
     "number": 25,
-    "en_name": "Philemon",
-    "am_name": "ወደ ፊልሞና",
-    "filename": "25-philemon.json",
+    "en_name": "1_Thessalonians",
+    "am_name": "1ኛ ወደ ተሰሎንቄ ሰዎች፥",
+    "filename": "25-1_thessalonians.json",
     "testament": "new"
   },
   {
     "number": 26,
-    "en_name": "Hebrews",
-    "am_name": "ወደ ዕብራውያን",
-    "filename": "26-hebrews.json",
+    "en_name": "2_Thessalonians",
+    "am_name": "2ኛ ወደ ተሰሎንቄ ሰዎች",
+    "filename": "26-2_thessalonians.json",
     "testament": "new"
   },
   {
     "number": 27,
-    "en_name": "James",
-    "am_name": "የያዕቆብ መልእክት",
-    "filename": "27-james.json",
+    "en_name": "1_Timothy",
+    "am_name": "1ኛ ወደ ጢሞቴዎስ",
+    "filename": "27-1_timothy.json",
     "testament": "new"
   },
   {
     "number": 28,
-    "en_name": "1_Peter",
-    "am_name": "1ኛ ጴጥሮስ",
-    "filename": "28-1_peter.json",
+    "en_name": "2_Timothy",
+    "am_name": "2ኛ ወደ ጢሞቴዎስ",
+    "filename": "28-2_timothy.json",
     "testament": "new"
   },
   {
     "number": 29,
-    "en_name": "2_Peter",
-    "am_name": "2ኛ ጴጥሮስ",
-    "filename": "29-2_peter.json",
+    "en_name": "Titus",
+    "am_name": "ወደ ቲቶ",
+    "filename": "29-titus.json",
     "testament": "new"
   },
   {
     "number": 30,
-    "en_name": "1_John",
-    "am_name": "1ኛ የዮሐንስ መልእክት",
-    "filename": "30-1_john.json",
+    "en_name": "Philemon",
+    "am_name": "ወደ ፊልሞና",
+    "filename": "30-philemon.json",
     "testament": "new"
   },
   {
     "number": 31,
-    "en_name": "2_John",
-    "am_name": "2ኛ የዮሐንስ መልእክት",
-    "filename": "31-2_john.json",
+    "en_name": "Hebrews",
+    "am_name": "ወደ ዕብራውያን",
+    "filename": "31-hebrews.json",
     "testament": "new"
   },
   {
     "number": 32,
-    "en_name": "3_John",
-    "am_name": "3ኛ የዮሐንስ መልእክት",
-    "filename": "32-3_john.json",
+    "en_name": "James",
+    "am_name": "የያዕቆብ መልእክት",
+    "filename": "32-james.json",
     "testament": "new"
   },
   {
     "number": 33,
-    "en_name": "Jude",
-    "am_name": "የይሁዳ መልእክት",
-    "filename": "33-jude.json",
+    "en_name": "1_Peter",
+    "am_name": "1ኛ ጴጥሮስ መልእክት",
+    "filename": "33-1_peter.json",
     "testament": "new"
   },
   {
     "number": 34,
+    "en_name": "2_Peter",
+    "am_name": "2ኛ ጴጥሮስ መልእክት",
+    "filename": "34-2_peter.json",
+    "testament": "new"
+  },
+  {
+    "number": 35,
+    "en_name": "1_John",
+    "am_name": "1ኛ ዮሐንስ መልእክት",
+    "filename": "35-1_john.json",
+    "testament": "new"
+  },
+  {
+    "number": 36,
+    "en_name": "2_John",
+    "am_name": "2ኛ ዮሐንስ መልእክት",
+    "filename": "36-2_john.json",
+    "testament": "new"
+  },
+  {
+    "number": 37,
+    "en_name": "3_John",
+    "am_name": "3ኛ ዮሐንስ መልእክት",
+    "filename": "37-3_john.json",
+    "testament": "new"
+  },
+  {
+    "number": 38,
+    "en_name": "Jude",
+    "am_name": "የይሁዳ መልእክት",
+    "filename": "38-jude.json",
+    "testament": "new"
+  },
+  {
+    "number": 39,
     "en_name": "Revelation",
     "am_name": "የዮሐንስ ራእይ",
-    "filename": "34-revelation.json",
+    "filename": "39-revelation.json",
     "testament": "new"
   }
 ]
