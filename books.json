@@ -355,5 +355,12 @@
     "am_name": "ትንቢተ ኢሳይያስ",
     "filename": "46-isaiah.json",
     "testament": "old"
+  },
+  {
+    "number": 47,
+    "en_name": "Jeremiah",
+    "am_name": "ትንቢተ ኤርምያስ",
+    "filename": "47-jeremiah.json",
+    "testament": "old"
   }
 ]
