@@ -418,5 +418,12 @@
     "am_name": "ትንቢተ ዮናስ",
     "filename": "55-jonah.json",
     "testament": "old"
+  },
+  {
+    "number": 56,
+    "en_name": "Nahum",
+    "am_name": "ትንቢተ ናሖም",
+    "filename": "56-nahum.json",
+    "testament": "old"
   }
 ]
