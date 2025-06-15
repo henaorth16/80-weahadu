@@ -50,10 +50,24 @@
   },
   {
     "number": 8,
+    "en_name": "Ruth",
+    "am_name": "መጽሐፈ ሩት",
+    "filename": "08-ruth.json",
+    "testament": "old"
+  },
+  {
+    "number": 8,
     "en_name": "Matthew",
     "am_name": "የማቴዎስ ወንጌል",
     "filename": "08-matthew.json",
     "testament": "new"
+  },
+  {
+    "number": 9,
+    "en_name": "1 Samuel",
+    "am_name": "መጽሐፈ ሳሙኤል ቀዳማዊ",
+    "filename": "09-1samuel.json",
+    "testament": "old"
   },
   {
     "number": 9,
@@ -64,6 +78,13 @@
   },
   {
     "number": 10,
+    "en_name": "2 Samuel",
+    "am_name": "መጽሐፈ ሳሙኤል ካልዕ",
+    "filename": "10-2 samuel.json",
+    "testament": "old"
+  },
+  {
+    "number": 10,
     "en_name": "Luke",
     "am_name": "የሉቃስ ወንጌል",
     "filename": "10-luke.json",
@@ -71,10 +92,24 @@
   },
   {
     "number": 11,
+    "en_name": "1 Kings",
+    "am_name": "መጽሐፈ ነገሥት ቀዳማዊ",
+    "filename": "11-1 kings.json",
+    "testament": "old"
+  },
+  {
+    "number": 11,
     "en_name": "John",
     "am_name": "የዮሐንስ ወንጌል",
     "filename": "11-john.json",
     "testament": "new"
+  },
+  {
+    "number": 12,
+    "en_name": "2 Kings",
+    "am_name": "መጽሐፈ ነገሥት ካልዕ",
+    "filename": "12-2 kings.json",
+    "testament": "old"
   },
   {
     "number": 12,
@@ -236,5 +271,201 @@
     "am_name": "የዮሐንስ ራእይ",
     "filename": "34-revelation.json",
     "testament": "new"
+  },
+  {
+    "number": 35,
+    "en_name": "1 Chronicles",
+    "am_name": "መጽሐፈ ዜና መዋዕል ቀዳማዊ",
+    "filename": "35-1 chronicles.json",
+    "testament": "old"
+  },
+  {
+    "number": 36,
+    "en_name": "2 Chronicles",
+    "am_name": "መጽሐፈ ዜና መዋዕል ካልዕ",
+    "filename": "36-2 chronicles.json",
+    "testament": "old"
+  },
+  {
+    "number": 37,
+    "en_name": "Ezra",
+    "am_name": "መጽሐፈ ዕዝራ",
+    "filename": "37-ezra.json",
+    "testament": "old"
+  },
+  {
+    "number": 38,
+    "en_name": "Nehemiah",
+    "am_name": "መጽሐፈ ነሐምያ",
+    "filename": "38-nehemiah.json",
+    "testament": "old"
+  },
+  {
+    "number": 39,
+    "en_name": "Esther",
+    "am_name": "መጽሐፈ አስቴር",
+    "filename": "39-esther.json",
+    "testament": "old"
+  },
+  {
+    "number": 40,
+    "en_name": "Job",
+    "am_name": "መጽሐፈ ኢዮብ",
+    "filename": "40-job.json",
+    "testament": "old"
+  },
+  {
+    "number": 41,
+    "en_name": "Psalms",
+    "am_name": "መዝሙረ ዳዊት",
+    "filename": "41-psalms.json",
+    "testament": "old"
+  },
+  {
+    "number": 42,
+    "en_name": "Proverbs",
+    "am_name": "መጽሐፈ ምሳሌ",
+    "filename": "42-proverbs.json",
+    "testament": "old"
+  },
+  {
+    "number": 43,
+    "en_name": "Tegsatsh",
+    "am_name": "መጽሐፈ ተግሣጽ",
+    "filename": "43-tegsatsh.json",
+    "testament": "old"
+  },
+  {
+    "number": 44,
+    "en_name": "Ecclesiastes",
+    "am_name": "መጽሐፈ መክብብ",
+    "filename": "44-ecclesiastes.json",
+    "testament": "old"
+  },
+  {
+    "number": 45,
+    "en_name": "Song of Solomon",
+    "am_name": "ማሕልየ መሓልይ ዘሰሎሞን",
+    "filename": "45-song of solomon.json",
+    "testament": "old"
+  },
+  {
+    "number": 46,
+    "en_name": "Isaiah",
+    "am_name": "ትንቢተ ኢሳይያስ",
+    "filename": "46-isaiah.json",
+    "testament": "old"
+  },
+  {
+    "number": 47,
+    "en_name": "Jeremiah",
+    "am_name": "ትንቢተ ኤርምያስ",
+    "filename": "47-jeremiah.json",
+    "testament": "old"
+  },
+  {
+    "number": 48,
+    "en_name": "Lamentations",
+    "am_name": "ሰቆቃወ ኤርምያስ",
+    "filename": "48-lamentations.json",
+    "testament": "old"
+  },
+  {
+    "number": 49,
+    "en_name": "Eekiel",
+    "am_name": "ትንቢተ ሕዝቅኤል",
+    "filename": "49-eekiel.json",
+    "testament": "old"
+  },
+  {
+    "number": 50,
+    "en_name": "Daniel",
+    "am_name": "ትንቢተ ዳንኤል",
+    "filename": "50-daniel.json",
+    "testament": "old"
+  },
+  {
+    "number": 51,
+    "en_name": "Hosea",
+    "am_name": "ትንቢተ ሆሴዕ",
+    "filename": "51-hosea.json",
+    "testament": "old"
+  },
+  {
+    "number": 52,
+    "en_name": "Amos",
+    "am_name": "ትንቢተ ዓሞጽ",
+    "filename": "52-amos.json",
+    "testament": "old"
+  },
+  {
+    "number": 53,
+    "en_name": "Micah",
+    "am_name": "ትንቢተ ሚክያስ",
+    "filename": "53-micah.json",
+    "testament": "old"
+  },
+  {
+    "number": 54,
+    "en_name": "Joel",
+    "am_name": "ትንቢተ ኢዮኤል",
+    "filename": "54-joel.json",
+    "testament": "old"
+  },
+  {
+    "number": 55,
+    "en_name": "Jonah",
+    "am_name": "ትንቢተ ዮናስ",
+    "filename": "55-jonah.json",
+    "testament": "old"
+  },
+  {
+    "number": 56,
+    "en_name": "Nahum",
+    "am_name": "ትንቢተ ናሖም",
+    "filename": "56-nahum.json",
+    "testament": "old"
+  },
+  {
+    "number": 57,
+    "en_name": "Habakkuk",
+    "am_name": "ትንቢተ ዕንባቆም",
+    "filename": "57-habakkuk.json",
+    "testament": "old"
+  },
+  {
+    "number": 58,
+    "en_name": "Zephaniah",
+    "am_name": "ትንቢተ ሶፎንያስ",
+    "filename": "58-zephaniah.json",
+    "testament": "old"
+  },
+  {
+    "number": 59,
+    "en_name": "Haggai",
+    "am_name": "ትንቢተ ሐጌ",
+    "filename": "59-haggai.json",
+    "testament": "old"
+  },
+  {
+    "number": 60,
+    "en_name": "Zechariah",
+    "am_name": "ትንቢተ ዘካርያስ",
+    "filename": "60-zechariah.json",
+    "testament": "old"
+  },
+  {
+    "number": 61,
+    "en_name": "Malachi",
+    "am_name": "ትንቢተ ሚልክያስ",
+    "filename": "61-malachi.json",
+    "testament": "old"
+  },
+  {
+    "number": 62,
+    "en_name": "Obadiah",
+    "am_name": "ትንቢተ ዐብድዩ",
+    "filename": "62-obadiah.json",
+    "testament": "old"
   }
 ]
