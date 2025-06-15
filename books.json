@@ -362,5 +362,12 @@
     "am_name": "ትንቢተ ኤርምያስ",
     "filename": "47-jeremiah.json",
     "testament": "old"
+  },
+  {
+    "number": 48,
+    "en_name": "Lamentations",
+    "am_name": "ሰቆቃወ ኤርምያስ",
+    "filename": "48-lamentations.json",
+    "testament": "old"
   }
 ]
