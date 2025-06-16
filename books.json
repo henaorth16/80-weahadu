@@ -481,5 +481,12 @@
     "am_name": "የዮሐንስ ራእይ",
     "filename": "34-revelation.json",
     "testament": "new"
+  },
+  {
+    "number": 65,
+    "en_name": "EzraSutuel",
+    "am_name": "መጽሐፈ ዕዝራ ሱቱኤል",
+    "filename": "65-ezrasutuel.json",
+    "testament": "old"
   }
 ]
