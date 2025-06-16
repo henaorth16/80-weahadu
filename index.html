@@ -109,14 +109,18 @@
         <main class="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto custom-scrollbar">
             <div id="main-content-area" class="max-w-4xl mx-auto">
                 <!-- Navigation Header -->
-                <div class="flex justify-between items-center mb-2 border-b pb-4">
-                    <button id="prev-chapter-btn" class="p-2 rounded-full hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity" title="Previous Chapter">
+                <div class="flex justify-center md:justify-between items-center mb-2 border-b pb-4">
+                     <!-- Previous Button -->
+                    <button id="prev-chapter-btn" class="fixed md:static top-1/2 left-4 -translate-y-1/2 md:translate-y-0 z-10 p-2 rounded-full bg-white/70 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none shadow-lg md:shadow-none hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all" title="Previous Chapter">
                          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-stone-600"><polyline points="15 18 9 12 15 6"></polyline></svg>
                     </button>
+                    
                     <div class="text-center">
                        <h1 id="chapter-title" class="text-3xl md:text-4xl font-bold text-stone-900"></h1>
                     </div>
-                    <button id="next-chapter-btn" class="p-2 rounded-full hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity" title="Next Chapter">
+
+                    <!-- Next Button -->
+                    <button id="next-chapter-btn" class="fixed md:static top-1/2 right-4 -translate-y-1/2 md:translate-y-0 z-10 p-2 rounded-full bg-white/70 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none shadow-lg md:shadow-none hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all" title="Next Chapter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-stone-600"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </button>
                 </div>
@@ -178,12 +182,10 @@
         }
 
         async function handleBookSelection(book, chapterToLoad = 1) {
-            if (!book) return;
-            // Prevent re-loading the same book if it's already selected
-            if (currentBookNumber === book.number) return;
+            if (!book || currentBookNumber === book.number) return;
 
             currentBookNumber = book.number;
-            currentBookData = null; // Reset book data immediately
+            currentBookData = null; 
             
             chaptersListEl.innerHTML = '<li class="p-3 text-stone-500">በመጫን ላይ...</li>';
             updateActiveBook();
@@ -276,7 +278,7 @@
                 });
             }
             updateNavButtons();
-            document.querySelector('main').scrollTop = 0; // Scroll to top
+            document.querySelector('main').scrollTop = 0;
         }
 
         function updateActiveBook() {
@@ -305,11 +307,9 @@
             const newChapterIndex = currentChapterIndex + direction;
 
             if (newChapterIndex >= 0 && newChapterIndex < currentBookData.chapters.length) {
-                // Navigate within the same book
                 const newChapterNum = currentBookData.chapters[newChapterIndex].chapter;
                 handleChapterSelection(newChapterNum);
             } else {
-                // Navigate to a different book
                 const filteredBooks = BOOKS.filter(b => b.testament === currentTestament);
                 const currentBookIndexInTestament = filteredBooks.findIndex(b => b.number === currentBookNumber);
                 const newBookIndex = currentBookIndexInTestament + direction;
@@ -323,7 +323,6 @@
         }
 
         function updateNavButtons() {
-            // FIX: Add a guard to prevent running if no book data is loaded
             if (!currentBookData || currentBookData.chapters.length === 0) {
                 prevChapterBtn.disabled = true;
                 nextChapterBtn.disabled = true;
@@ -345,14 +344,13 @@
             currentTestament = testamentToShow;
             loadBookList(currentTestament);
             
-            // Reset state
             chaptersListEl.innerHTML = '';
             chapterTitleEl.textContent = '';
             chapterSubtitleEl.classList.add('hidden');
             textContainerEl.innerHTML = '';
             if(initialMessageEl) initialMessageEl.style.display = 'block';
             currentBookNumber = -1;
-            currentBookData = null; // Explicitly set to null
+            currentBookData = null; 
             
             oldTestamentTab.classList.toggle('tab-active', testamentToShow === 'old');
             newTestamentTab.classList.toggle('tab-active', testamentToShow === 'new');
@@ -378,7 +376,6 @@
                 if (!response.ok) throw new Error(`'books.json' not found or could not be loaded.`);
                 BOOKS = await response.json();
                 
-                // Set the default tab *before* loading the first book
                 switchTestament('old'); 
                 
                 const firstBook = BOOKS.find(b => b.testament === 'old');
