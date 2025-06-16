@@ -474,5 +474,12 @@
     "am_name": "መጽሐፈ ሔኖክ",
     "filename": "63-enoch.json",
     "testament": "old"
+  },
+  {
+    "number": 64,
+    "en_name": "Kufale",
+    "am_name": "መጽሐፈ ኩፋሌ",
+    "filename": "64-kufale.json",
+    "testament": "old"
   }
 ]
