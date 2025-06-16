@@ -82,8 +82,8 @@
                 <aside id="books-sidebar" class="w-1/2 border-r border-stone-200 flex flex-col">
                     <div class="flex-shrink-0 border-b border-stone-200">
                          <div class="flex">
-                            <button id="old-testament-tab" class="tab-button flex-1 p-3 text-sm text-stone-600 border-b-2 border-transparent hover:bg-stone-50">ብሉይ ኪዳን</button>
-                            <button id="new-testament-tab" class="tab-button flex-1 p-3 text-sm text-stone-600 border-b-2 border-transparent hover:bg-stone-50">አዲስ ኪዳን</button>
+                             <button id="old-testament-tab" class="tab-button flex-1 p-3 text-sm text-stone-600 border-b-2 border-transparent hover:bg-stone-50">ብሉይ ኪዳን</button>
+                             <button id="new-testament-tab" class="tab-button flex-1 p-3 text-sm text-stone-600 border-b-2 border-transparent hover:bg-stone-50">አዲስ ኪዳን</button>
                          </div>
                     </div>
                     <ul id="books-list" class="divide-y divide-stone-100 overflow-y-auto custom-scrollbar flex-grow">
@@ -108,7 +108,9 @@
         <!-- Main Content (Bible Text Display) -->
         <main class="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto custom-scrollbar">
             <div id="main-content-area" class="max-w-4xl mx-auto">
-                <h1 id="chapter-title" class="text-4xl font-bold mb-6 text-stone-900 border-b pb-4"></h1>
+                <h1 id="chapter-title" class="text-4xl font-bold mb-2 text-stone-900 border-b pb-4 text-center"></h1>
+                <!-- This is the new element to hold the chapter title -->
+                <h2 id="chapter-subtitle" class="text-2xl text-stone-600 italic mt-4 mb-6 text-center hidden"></h2>
                 <div id="text-container" class="text-2xl leading-loose space-y-4">
                     <!-- Bible text will be displayed here -->
                     <div id="initial-message" class="text-center text-stone-500 mt-20">
@@ -133,6 +135,7 @@
         const booksListEl = document.getElementById('books-list');
         const chaptersListEl = document.getElementById('chapters-list');
         const chapterTitleEl = document.getElementById('chapter-title');
+        const chapterSubtitleEl = document.getElementById('chapter-subtitle'); // <-- New element
         const textContainerEl = document.getElementById('text-container');
         const initialMessageEl = document.getElementById('initial-message');
         const navPanel = document.getElementById('nav-panel');
@@ -174,20 +177,18 @@
          * @param {object} book - The book object from the BOOKS array.
          */
         async function handleBookSelection(book) {
-            // No need to reload if same book is clicked, but allow re-clicking to show chapters if they are hidden
             if (currentBookNumber === book.number && chaptersListEl.innerHTML !== '') {
                 return; 
             }
 
             currentBookNumber = book.number;
             
-            // Show a loading state
             chaptersListEl.innerHTML = '<li class="p-3 text-stone-500">በመጫን ላይ...</li>';
             textContainerEl.innerHTML = '';
             chapterTitleEl.textContent = '';
+            chapterSubtitleEl.classList.add('hidden'); // Hide subtitle initially
             if(initialMessageEl) initialMessageEl.style.display = 'none';
 
-            // Update active state in UI
             updateActiveBook();
 
             try {
@@ -207,9 +208,8 @@
                 chaptersListEl.innerHTML = `<li class="p-3 text-red-500">ስህተት ተከስቷል</li>`;
                 textContainerEl.innerHTML = `<p class="text-red-500 text-center">${error.message}</p>`;
             }
-             // On mobile, close nav panel after selecting a book
              if (window.innerWidth < 768) {
-                navPanel.classList.add('-translate-x-full');
+                 navPanel.classList.add('-translate-x-full');
             }
         }
 
@@ -246,17 +246,27 @@
                 updateActiveChapter();
             }
              if (window.innerWidth < 768) {
-                navPanel.classList.add('-translate-x-full');
+                 navPanel.classList.add('-translate-x-full');
             }
         }
 
         /**
-         * Renders verses in the main content area.
+         * Renders the chapter title and verses in the main content area.
          * @param {object} chapterData - The object for the selected chapter.
          */
         function displayChapter(chapterData) {
             chapterTitleEl.textContent = `${currentBookData.book_name_am} - ምዕራፍ ${chapterData.chapter}`;
             textContainerEl.innerHTML = '';
+
+            // --- UPDATED LOGIC FOR TITLE ---
+            if (chapterData.title && chapterData.title.trim() !== "") {
+                chapterSubtitleEl.innerText = chapterData.title;
+                chapterSubtitleEl.classList.remove('hidden');
+            } else {
+                chapterSubtitleEl.innerText = '';
+                chapterSubtitleEl.classList.add('hidden');
+            }
+            // --- END OF UPDATE ---
 
             if (chapterData.verses.length === 0) {
                 textContainerEl.innerHTML = '<p class="text-stone-500">ለዚህ ምዕራፍ ምንም ጽሑፍ የለም።</p>';
@@ -271,14 +281,16 @@
                 verseNumberSpan.className = 'text-sm font-bold text-stone-500 align-super mr-2';
                 verseNumberSpan.textContent = verse.verse;
                 
-                const verseTextNode = document.createTextNode(verse.text);
+                // Use innerText to correctly render newlines from the JSON
+                const verseTextNode = document.createElement('span');
+                verseTextNode.innerText = verse.text;
                 
                 p.appendChild(verseNumberSpan);
                 p.appendChild(verseTextNode);
                 
                 textContainerEl.appendChild(p);
             });
-            document.querySelector('main').scrollTop = 0;
+            document.querySelector('main').scrollTop = 0; // Scroll to top
         }
 
         /**
@@ -316,6 +328,7 @@
             // Clear selections when switching testaments
             chaptersListEl.innerHTML = '';
             chapterTitleEl.textContent = '';
+            chapterSubtitleEl.classList.add('hidden');
             textContainerEl.innerHTML = '';
             if(initialMessageEl) initialMessageEl.style.display = 'block';
             currentBookNumber = -1;
