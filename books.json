@@ -467,5 +467,12 @@
     "am_name": "ትንቢተ ዐብድዩ",
     "filename": "62-obadiah.json",
     "testament": "old"
+  },
+  {
+    "number": 63,
+    "en_name": "Enoch",
+    "am_name": "መጽሐፈ ሔኖክ",
+    "filename": "63-enoch.json",
+    "testament": "old"
   }
 ]
