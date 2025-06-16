@@ -108,14 +108,26 @@
         <!-- Main Content (Bible Text Display) -->
         <main class="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto custom-scrollbar">
             <div id="main-content-area" class="max-w-4xl mx-auto">
-                <h1 id="chapter-title" class="text-4xl font-bold mb-2 text-stone-900 border-b pb-4 text-center"></h1>
-                <!-- This is the new element to hold the chapter title -->
+                <!-- Navigation Header -->
+                <div class="flex justify-between items-center mb-2 border-b pb-4">
+                    <button id="prev-chapter-btn" class="p-2 rounded-full hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity" title="Previous Chapter">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-stone-600"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <div class="text-center">
+                       <h1 id="chapter-title" class="text-3xl md:text-4xl font-bold text-stone-900"></h1>
+                    </div>
+                    <button id="next-chapter-btn" class="p-2 rounded-full hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity" title="Next Chapter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-stone-600"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+
                 <h2 id="chapter-subtitle" class="text-2xl text-stone-600 italic mt-4 mb-6 text-center hidden"></h2>
+                
                 <div id="text-container" class="text-2xl leading-loose space-y-4">
                     <!-- Bible text will be displayed here -->
                     <div id="initial-message" class="text-center text-stone-500 mt-20">
-                        <p class="text-lg">ለመጀመር እባክዎ ከመጽሐፍት ዝርዝር ውስጥ ይምረጡ።</p>
-                        <p style="font-family: 'Inter', sans-serif;">Please select a book from the list to begin.</p>
+                        <p class="text-lg">በመጫን ላይ...</p>
+                        <p style="font-family: 'Inter', sans-serif;">Loading...</p>
                     </div>
                 </div>
             </div>
@@ -125,8 +137,8 @@
     <!-- JavaScript Logic -->
     <script>
         // --- APPLICATION STATE ---
-        let BOOKS = []; // This will be populated from books.json
-        let currentTestament = 'old'; // 'old' or 'new'
+        let BOOKS = [];
+        let currentTestament = 'old';
         let currentBookData = null;
         let currentBookNumber = -1;
         let currentChapterNumber = -1;
@@ -135,7 +147,7 @@
         const booksListEl = document.getElementById('books-list');
         const chaptersListEl = document.getElementById('chapters-list');
         const chapterTitleEl = document.getElementById('chapter-title');
-        const chapterSubtitleEl = document.getElementById('chapter-subtitle'); // <-- New element
+        const chapterSubtitleEl = document.getElementById('chapter-subtitle');
         const textContainerEl = document.getElementById('text-container');
         const initialMessageEl = document.getElementById('initial-message');
         const navPanel = document.getElementById('nav-panel');
@@ -143,64 +155,53 @@
         const appContainer = document.getElementById('app-container');
         const oldTestamentTab = document.getElementById('old-testament-tab');
         const newTestamentTab = document.getElementById('new-testament-tab');
+        const prevChapterBtn = document.getElementById('prev-chapter-btn');
+        const nextChapterBtn = document.getElementById('next-chapter-btn');
 
         // --- FUNCTIONS ---
 
-        /**
-         * Populates the "Books" sidebar based on the selected testament.
-         * @param {string} testament - The selected testament ('old' or 'new').
-         */
         function loadBookList(testament) {
-            booksListEl.innerHTML = ''; // Clear existing list
-            
+            booksListEl.innerHTML = ''; 
             const filteredBooks = BOOKS.filter(book => book.testament === testament);
-
             if (filteredBooks.length === 0) {
                  booksListEl.innerHTML = `<li class="p-3 text-stone-400 text-center">መጽሐፍት አልተገኙም</li>`;
                  return;
             }
-
             filteredBooks.forEach(book => {
                 const li = document.createElement('li');
                 li.className = 'p-3 cursor-pointer hover:bg-stone-100 transition-colors duration-200';
                 li.textContent = book.am_name; 
                 li.dataset.bookNumber = book.number;
-                
-                li.addEventListener('click', () => handleBookSelection(book));
-                
+                li.addEventListener('click', () => handleBookSelection(book, 1));
                 booksListEl.appendChild(li);
             });
         }
 
-        /**
-         * Handles the logic when a user clicks on a book name.
-         * @param {object} book - The book object from the BOOKS array.
-         */
-        async function handleBookSelection(book) {
-            if (currentBookNumber === book.number && chaptersListEl.innerHTML !== '') {
-                return; 
-            }
+        async function handleBookSelection(book, chapterToLoad = 1) {
+            if (!book) return;
+            // Prevent re-loading the same book if it's already selected
+            if (currentBookNumber === book.number) return;
 
             currentBookNumber = book.number;
+            currentBookData = null; // Reset book data immediately
             
             chaptersListEl.innerHTML = '<li class="p-3 text-stone-500">በመጫን ላይ...</li>';
-            textContainerEl.innerHTML = '';
-            chapterTitleEl.textContent = '';
-            chapterSubtitleEl.classList.add('hidden'); // Hide subtitle initially
-            if(initialMessageEl) initialMessageEl.style.display = 'none';
-
             updateActiveBook();
 
             try {
                 const response = await fetch(`./data/am/${book.filename}`);
-                if (!response.ok) {
-                    throw new Error(`መጽሐፉን መጫን አልተቻለም፡ ${response.statusText}`);
-                }
+                if (!response.ok) throw new Error(`መጽሐፉን መጫን አልተቻለም፡ ${response.statusText}`);
                 currentBookData = await response.json();
                 
                 loadChapterList(currentBookData.chapters);
+
+                let chapterNumToLoad = chapterToLoad;
+                if (chapterToLoad === 'last' && currentBookData.chapters.length > 0) {
+                    chapterNumToLoad = currentBookData.chapters[currentBookData.chapters.length - 1].chapter;
+                }
+                
                 if (currentBookData.chapters.length > 0) {
-                    handleChapterSelection(1);
+                    handleChapterSelection(chapterNumToLoad);
                 }
 
             } catch (error) {
@@ -213,10 +214,6 @@
             }
         }
 
-        /**
-         * Populates the "Chapters" sidebar.
-         * @param {Array} chapters - The array of chapter objects.
-         */
         function loadChapterList(chapters) {
             chaptersListEl.innerHTML = ''; 
             if (!chapters || chapters.length === 0) {
@@ -233,15 +230,11 @@
             });
         }
         
-        /**
-         * Handles logic when a user clicks a chapter.
-         * @param {number} chapterNum - The selected chapter number.
-         */
         function handleChapterSelection(chapterNum) {
-            currentChapterNumber = chapterNum;
+            if (!currentBookData) return;
             const chapterData = currentBookData.chapters.find(c => c.chapter === chapterNum);
-
             if (chapterData) {
+                currentChapterNumber = chapterNum;
                 displayChapter(chapterData);
                 updateActiveChapter();
             }
@@ -250,15 +243,11 @@
             }
         }
 
-        /**
-         * Renders the chapter title and verses in the main content area.
-         * @param {object} chapterData - The object for the selected chapter.
-         */
         function displayChapter(chapterData) {
             chapterTitleEl.textContent = `${currentBookData.book_name_am} - ምዕራፍ ${chapterData.chapter}`;
             textContainerEl.innerHTML = '';
+             if(initialMessageEl) initialMessageEl.style.display = 'none';
 
-            // --- UPDATED LOGIC FOR TITLE ---
             if (chapterData.title && chapterData.title.trim() !== "") {
                 chapterSubtitleEl.innerText = chapterData.title;
                 chapterSubtitleEl.classList.remove('hidden');
@@ -266,36 +255,30 @@
                 chapterSubtitleEl.innerText = '';
                 chapterSubtitleEl.classList.add('hidden');
             }
-            // --- END OF UPDATE ---
 
             if (chapterData.verses.length === 0) {
                 textContainerEl.innerHTML = '<p class="text-stone-500">ለዚህ ምዕራፍ ምንም ጽሑፍ የለም።</p>';
-                return;
+            } else {
+                chapterData.verses.forEach(verse => {
+                    const p = document.createElement('p');
+                    p.className = 'mb-2';
+                    const verseNumberSpan = document.createElement('span');
+                    verseNumberSpan.className = 'text-sm font-bold text-stone-500 align-super mr-2';
+                    verseNumberSpan.textContent = verse.verse;
+                    
+                    const verseTextNode = document.createElement('span');
+                    verseTextNode.innerText = verse.text;
+                    
+                    p.appendChild(verseNumberSpan);
+                    p.appendChild(verseTextNode);
+                    
+                    textContainerEl.appendChild(p);
+                });
             }
-
-            chapterData.verses.forEach(verse => {
-                const p = document.createElement('p');
-                p.className = 'mb-2';
-                
-                const verseNumberSpan = document.createElement('span');
-                verseNumberSpan.className = 'text-sm font-bold text-stone-500 align-super mr-2';
-                verseNumberSpan.textContent = verse.verse;
-                
-                // Use innerText to correctly render newlines from the JSON
-                const verseTextNode = document.createElement('span');
-                verseTextNode.innerText = verse.text;
-                
-                p.appendChild(verseNumberSpan);
-                p.appendChild(verseTextNode);
-                
-                textContainerEl.appendChild(p);
-            });
+            updateNavButtons();
             document.querySelector('main').scrollTop = 0; // Scroll to top
         }
 
-        /**
-         * Updates visual styling for the selected book.
-         */
         function updateActiveBook() {
             document.querySelectorAll('#books-list li').forEach(item => {
                 item.classList.remove('active-item');
@@ -305,65 +288,105 @@
             });
         }
 
-        /**
-         * Updates visual styling for the selected chapter.
-         */
         function updateActiveChapter() {
              document.querySelectorAll('#chapters-list li').forEach(item => {
                 item.classList.remove('active-item');
                 if (parseInt(item.dataset.chapterNumber) === currentChapterNumber) {
                     item.classList.add('active-item');
+                     item.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             });
         }
+        
+        function navigateChapter(direction) {
+            if (!currentBookData) return;
+            
+            const currentChapterIndex = currentBookData.chapters.findIndex(c => c.chapter === currentChapterNumber);
+            const newChapterIndex = currentChapterIndex + direction;
 
-        /**
-         * Switches the active testament tab.
-         * @param {string} testamentToShow - 'old' or 'new'
-         */
+            if (newChapterIndex >= 0 && newChapterIndex < currentBookData.chapters.length) {
+                // Navigate within the same book
+                const newChapterNum = currentBookData.chapters[newChapterIndex].chapter;
+                handleChapterSelection(newChapterNum);
+            } else {
+                // Navigate to a different book
+                const filteredBooks = BOOKS.filter(b => b.testament === currentTestament);
+                const currentBookIndexInTestament = filteredBooks.findIndex(b => b.number === currentBookNumber);
+                const newBookIndex = currentBookIndexInTestament + direction;
+
+                if (newBookIndex >= 0 && newBookIndex < filteredBooks.length) {
+                    const newBook = filteredBooks[newBookIndex];
+                    const chapterToLoad = direction === 1 ? 1 : 'last';
+                    handleBookSelection(newBook, chapterToLoad);
+                }
+            }
+        }
+
+        function updateNavButtons() {
+            // FIX: Add a guard to prevent running if no book data is loaded
+            if (!currentBookData || currentBookData.chapters.length === 0) {
+                prevChapterBtn.disabled = true;
+                nextChapterBtn.disabled = true;
+                return;
+            }
+
+            const filteredBooks = BOOKS.filter(b => b.testament === currentTestament);
+            const currentBookIndex = filteredBooks.findIndex(b => b.number === currentBookNumber);
+            const currentChapterIndex = currentBookData.chapters.findIndex(c => c.chapter === currentChapterNumber);
+            
+            prevChapterBtn.disabled = currentBookIndex === 0 && currentChapterIndex === 0;
+            
+            const isLastChapter = currentChapterIndex === currentBookData.chapters.length - 1;
+            const isLastBook = currentBookIndex === filteredBooks.length - 1;
+            nextChapterBtn.disabled = isLastBook && isLastChapter;
+        }
+
         function switchTestament(testamentToShow) {
             currentTestament = testamentToShow;
             loadBookList(currentTestament);
             
-            // Clear selections when switching testaments
+            // Reset state
             chaptersListEl.innerHTML = '';
             chapterTitleEl.textContent = '';
             chapterSubtitleEl.classList.add('hidden');
             textContainerEl.innerHTML = '';
             if(initialMessageEl) initialMessageEl.style.display = 'block';
             currentBookNumber = -1;
+            currentBookData = null; // Explicitly set to null
             
-            // Update tab styles
             oldTestamentTab.classList.toggle('tab-active', testamentToShow === 'old');
             newTestamentTab.classList.toggle('tab-active', testamentToShow === 'new');
+            updateNavButtons();
         }
         
         // --- EVENT LISTENERS ---
-        mobileMenuBtn.addEventListener('click', () => {
-            navPanel.classList.toggle('-translate-x-full');
-        });
-
+        mobileMenuBtn.addEventListener('click', () => navPanel.classList.toggle('-translate-x-full'));
         appContainer.addEventListener('click', (e) => {
             if (!navPanel.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                  navPanel.classList.add('-translate-x-full');
             }
         });
-
         oldTestamentTab.addEventListener('click', () => switchTestament('old'));
         newTestamentTab.addEventListener('click', () => switchTestament('new'));
+        prevChapterBtn.addEventListener('click', () => navigateChapter(-1));
+        nextChapterBtn.addEventListener('click', () => navigateChapter(1));
 
         // --- INITIALIZATION ---
-        window.addEventListener('DOMContentLoaded', async () => {
-            try {
+        async function initializeApp() {
+             try {
                 const response = await fetch('./books.json');
-                if (!response.ok) {
-                    throw new Error(`'books.json' not found or could not be loaded.`);
-                }
+                if (!response.ok) throw new Error(`'books.json' not found or could not be loaded.`);
                 BOOKS = await response.json();
                 
-                // Set the default tab and load its books
-                switchTestament('old');
-
+                // Set the default tab *before* loading the first book
+                switchTestament('old'); 
+                
+                const firstBook = BOOKS.find(b => b.testament === 'old');
+                if (firstBook) {
+                    await handleBookSelection(firstBook, 1);
+                } else {
+                    initialMessageEl.innerHTML = `<p class="text-lg">ምንም መጽሐፍት አልተገኙም።</p><p style="font-family: 'Inter', sans-serif;">No books found.</p>`;
+                }
             } catch (error) {
                 console.error("Initialization Failed:", error);
                 const container = document.getElementById('app-container');
@@ -371,7 +394,10 @@
                     <p><strong>ስህተት፡</strong> አፕሊኬሽኑን መጀመር አልተቻለም።<br><br>${error.message}</p>
                 </div>`;
             }
-        });
+        }
+        
+        window.addEventListener('DOMContentLoaded', initializeApp);
+
     </script>
 </body>
 </html>
