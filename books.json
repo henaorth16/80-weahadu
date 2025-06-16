@@ -62,7 +62,6 @@
     "filename": "09-1samuel.json",
     "testament": "old"
   },
-  
   {
     "number": 10,
     "en_name": "2 Samuel",
@@ -294,7 +293,7 @@
     "filename": "62-obadiah.json",
     "testament": "old"
   },
-   {
+  {
     "number": 8,
     "en_name": "Matthew",
     "am_name": "የማቴዎስ ወንጌል",
@@ -308,7 +307,7 @@
     "filename": "09-mark.json",
     "testament": "new"
   },
-    {
+  {
     "number": 10,
     "en_name": "Luke",
     "am_name": "የሉቃስ ወንጌል",
