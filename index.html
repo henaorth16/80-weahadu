@@ -154,13 +154,14 @@
         </nav>
 
         <!-- Main Content (Bible Text Display) -->
-        <main class="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto custom-scrollbar">
-            <div id="main-content-area" class="max-w-4xl mx-auto">
+        <main class="flex-1 overflow-y-auto custom-scrollbar">
+            <div id="main-content-area" class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 lg:p-12">
                 <!-- Navigation Header -->
-                <div class="flex justify-center md:justify-between items-center mb-2 border-b pb-4">
+                <div
+                    class="sticky top-0 z-10 bg-stone-50 flex justify-center md:justify-between items-center mb-2 border-b border-stone-200 pb-4 pt-4">
                     <!-- Previous Button -->
                     <button id="prev-chapter-btn"
-                        class="fixed md:static top-1/2 left-4 -translate-y-1/2 md:translate-y-0 z-10 p-2 rounded-full bg-white/70 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none shadow-lg md:shadow-none hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                        class="fixed md:static top-1/2 left-4 -translate-y-1/2 md:translate-y-0 z-10 p-2 rounded-full bg-white/70 md:bg-transparent backdrop-blur-none shadow-lg md:shadow-none hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                         title="Previous Chapter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -175,7 +176,7 @@
 
                     <!-- Next Button -->
                     <button id="next-chapter-btn"
-                        class="fixed md:static top-1/2 right-4 -translate-y-1/2 md:translate-y-0 z-10 p-2 rounded-full bg-white/70 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none shadow-lg md:shadow-none hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                        class="fixed md:static top-1/2 right-4 -translate-y-1/2 md:translate-y-0 z-10 p-2 rounded-full bg-white/70 md:bg-transparent backdrop-blur-none shadow-lg md:shadow-none hover:bg-stone-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                         title="Next Chapter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
