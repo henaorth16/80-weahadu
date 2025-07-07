@@ -57,6 +57,18 @@
             color: #1c1917; /* stone-900 */
             font-weight: 600;
         }
+        
+        /* Style for section titles within the text */
+        .section-title {
+            font-family: 'Noto Serif Ethiopic', serif;
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700;
+            color: #44403c; /* stone-700 */
+            margin-top: 2rem; /* mt-8 */
+            margin-bottom: 1rem; /* mb-4 */
+            padding-bottom: 0.5rem; /* pb-2 */
+            border-bottom: 1px solid #e7e5e4; /* border-stone-200 */
+        }
     </style>
 </head>
 <body class="antialiased text-stone-800">
@@ -124,8 +136,6 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-stone-600"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </button>
                 </div>
-
-                <h2 id="chapter-subtitle" class="text-2xl text-stone-600 italic mt-4 mb-6 text-center hidden"></h2>
                 
                 <div id="text-container" class="text-2xl leading-loose space-y-4">
                     <!-- Bible text will be displayed here -->
@@ -151,7 +161,6 @@
         const booksListEl = document.getElementById('books-list');
         const chaptersListEl = document.getElementById('chapters-list');
         const chapterTitleEl = document.getElementById('chapter-title');
-        const chapterSubtitleEl = document.getElementById('chapter-subtitle');
         const textContainerEl = document.getElementById('text-container');
         const initialMessageEl = document.getElementById('initial-message');
         const navPanel = document.getElementById('nav-panel');
@@ -248,35 +257,43 @@
         function displayChapter(chapterData) {
             chapterTitleEl.textContent = `${currentBookData.book_name_am} - ምዕራፍ ${chapterData.chapter}`;
             textContainerEl.innerHTML = '';
-             if(initialMessageEl) initialMessageEl.style.display = 'none';
+            if(initialMessageEl) initialMessageEl.style.display = 'none';
 
-            if (chapterData.title && chapterData.title.trim() !== "") {
-                chapterSubtitleEl.innerText = chapterData.title;
-                chapterSubtitleEl.classList.remove('hidden');
-            } else {
-                chapterSubtitleEl.innerText = '';
-                chapterSubtitleEl.classList.add('hidden');
-            }
-
-            if (chapterData.verses.length === 0) {
+            if (!chapterData.sections || chapterData.sections.length === 0) {
                 textContainerEl.innerHTML = '<p class="text-stone-500">ለዚህ ምዕራፍ ምንም ጽሑፍ የለም።</p>';
-            } else {
-                chapterData.verses.forEach(verse => {
-                    const p = document.createElement('p');
-                    p.className = 'mb-2';
-                    const verseNumberSpan = document.createElement('span');
-                    verseNumberSpan.className = 'text-sm font-bold text-stone-500 align-super mr-2';
-                    verseNumberSpan.textContent = verse.verse;
-                    
-                    const verseTextNode = document.createElement('span');
-                    verseTextNode.innerText = verse.text;
-                    
-                    p.appendChild(verseNumberSpan);
-                    p.appendChild(verseTextNode);
-                    
-                    textContainerEl.appendChild(p);
-                });
+                return;
             }
+
+            chapterData.sections.forEach(section => {
+                // If the section has a title, display it
+                if (section.title) {
+                    const h2 = document.createElement('h2');
+                    h2.className = 'section-title';
+                    h2.textContent = section.title;
+                    textContainerEl.appendChild(h2);
+                }
+
+                // Display all verses in the section
+                if (section.verses && section.verses.length > 0) {
+                    section.verses.forEach(verse => {
+                        const p = document.createElement('p');
+                        p.className = 'mb-2';
+                        
+                        const verseNumberSpan = document.createElement('span');
+                        verseNumberSpan.className = 'text-sm font-bold text-stone-500 align-super mr-2';
+                        verseNumberSpan.textContent = verse.verse;
+                        
+                        const verseTextNode = document.createElement('span');
+                        verseTextNode.innerText = verse.text;
+                        
+                        p.appendChild(verseNumberSpan);
+                        p.appendChild(verseTextNode);
+                        
+                        textContainerEl.appendChild(p);
+                    });
+                }
+            });
+
             updateNavButtons();
             document.querySelector('main').scrollTop = 0;
         }
@@ -346,7 +363,6 @@
             
             chaptersListEl.innerHTML = '';
             chapterTitleEl.textContent = '';
-            chapterSubtitleEl.classList.add('hidden');
             textContainerEl.innerHTML = '';
             if(initialMessageEl) initialMessageEl.style.display = 'block';
             currentBookNumber = -1;
