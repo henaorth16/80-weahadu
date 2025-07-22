@@ -1,6 +1,6 @@
 ### Old Testament
 1.  [x] Genesis (ኦሪት ዘፍጥረት)
-2.  [ ] Exodus (ኦሪት ዘጸአት)
+2.  [x] Exodus (ኦሪት ዘጸአት)
 3.  [ ] Leviticus (ኦሪት ዘሌዋውያን)
 4.  [ ] Numbers (ኦሪት ዘኁልቍ)
 5.  [ ] Deuteronomy (ኦሪት ዘዳግም)
