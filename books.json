@@ -84,24 +84,24 @@
     "testament": "old"
   },
   {
-    "number": 35,
+    "number": 13,
     "en_name": "1 Chronicles",
     "am_name": "መጽሐፈ ዜና መዋዕል ቀዳማዊ",
     "filename": "13-1 chronicles.json",
     "testament": "old"
   },
   {
-    "number": 36,
+    "number": 14,
     "en_name": "2 Chronicles",
     "am_name": "መጽሐፈ ዜና መዋዕል ካልዕ",
     "filename": "14-2 chronicles.json",
     "testament": "old"
   },
   {
-    "number": 64,
+    "number": 15,
     "en_name": "Kufale",
     "am_name": "መጽሐፈ ኩፋሌ",
-    "filename": "64-kufale.json",
+    "filename": "15-kufale.json",
     "testament": "old"
   },
   {
@@ -336,7 +336,7 @@
     "testament": "new"
   },
   {
-    "number": 13,
+    "number": 131,
     "en_name": "Romans",
     "am_name": "ወደ ሮሜ ሰዎች",
     "filename": "13-romans.json",
