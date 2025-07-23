@@ -84,6 +84,20 @@
     "testament": "old"
   },
   {
+    "number": 35,
+    "en_name": "1 Chronicles",
+    "am_name": "መጽሐፈ ዜና መዋዕል ቀዳማዊ",
+    "filename": "13-1 chronicles.json",
+    "testament": "old"
+  },
+  {
+    "number": 36,
+    "en_name": "2 Chronicles",
+    "am_name": "መጽሐፈ ዜና መዋዕል ካልዕ",
+    "filename": "14-2 chronicles.json",
+    "testament": "old"
+  },
+  {
     "number": 64,
     "en_name": "Kufale",
     "am_name": "መጽሐፈ ኩፋሌ",
@@ -116,20 +130,6 @@
     "en_name": "EzraSutuel",
     "am_name": "መጽሐፈ ዕዝራ ሱቱኤል",
     "filename": "65-ezrasutuel.json",
-    "testament": "old"
-  },
-  {
-    "number": 35,
-    "en_name": "1 Chronicles",
-    "am_name": "መጽሐፈ ዜና መዋዕል ቀዳማዊ",
-    "filename": "35-1 chronicles.json",
-    "testament": "old"
-  },
-  {
-    "number": 36,
-    "en_name": "2 Chronicles",
-    "am_name": "መጽሐፈ ዜና መዋዕል ካልዕ",
-    "filename": "36-2 chronicles.json",
     "testament": "old"
   },
   {
