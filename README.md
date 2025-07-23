@@ -5,7 +5,7 @@
 2.  [x] Exodus (ኦሪት ዘጸአት)
 3.  [x] Leviticus (ኦሪት ዘሌዋውያን)
 4.  [x] Numbers (ኦሪት ዘኁልቍ)
-5.  [ ] Deuteronomy (ኦሪት ዘዳግም)
+5.  [x] Deuteronomy (ኦሪት ዘዳግም)
 6.  [ ] Joshua (መጽሐፈ ኢያሱ ወልደ ነዌ)
 7.  [ ] Judges (መጽሐፈ መሣፍንት)
 8.  [ ] Ruth (መጽሐፈ ሩት)
