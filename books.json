@@ -175,6 +175,13 @@
     "testament": "old"
   },
   {
+    "number": 26,
+    "en_name": "3 Maccabees",
+    "am_name": "መጽሐፈ መቃብያን ሳልስ",
+    "filename": "26-3 maccabees.json",
+    "testament": "old"
+  },
+  {
     "number": 40,
     "en_name": "Job",
     "am_name": "መጽሐፈ ኢዮብ",
