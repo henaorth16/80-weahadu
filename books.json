@@ -140,6 +140,13 @@
     "testament": "old"
   },
   {
+    "number": 21,
+    "en_name": "Book of Tobit",
+    "am_name": "መጽ​ሐፈ ጦቢት",
+    "filename": "21-tobit.json",
+    "testament": "old"
+  },
+  {
     "number": 39,
     "en_name": "Esther",
     "am_name": "መጽሐፈ አስቴር",
