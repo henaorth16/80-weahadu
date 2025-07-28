@@ -168,6 +168,13 @@
     "testament": "old"
   },
   {
+    "number": 25,
+    "en_name": "2 Maccabees",
+    "am_name": "መጽሐፈ መቃብያን ካልእ",
+    "filename": "25-2 maccabees.json",
+    "testament": "old"
+  },
+  {
     "number": 40,
     "en_name": "Job",
     "am_name": "መጽሐፈ ኢዮብ",
