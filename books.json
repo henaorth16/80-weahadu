@@ -210,6 +210,13 @@
     "testament": "old"
   },
   {
+    "number": 31,
+    "en_name": "Wisdom of Solomon",
+    "am_name": "መጽሐፈ ጥበብ",
+    "filename": "31-wisdom of solomon.json",
+    "testament": "old"
+  },
+  {
     "number": 44,
     "en_name": "Ecclesiastes",
     "am_name": "መጽሐፈ መክብብ",
