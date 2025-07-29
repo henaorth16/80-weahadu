@@ -34,7 +34,7 @@
 31. [x] Wisdom of Solomon (መጽሐፈ ጥበብ)
 32. [x] Ecclesiastes (መጽሐፈ መክብብ)
 33. [x] Song of Solomon (መኃልየ መኃልይ ዘሰሎሞን)
-34. [ ] Sirach (መጽሐፈ ሲራክ)
+34. [x] Sirach (መጽሐፈ ሲራክ)
 35. [ ] Isaiah (ትንቢተ ኢሳይያስ)
 36. [ ] Jeremiah (ትንቢተ ኤርምያስ)
 37. [ ] Baruch (መጽሐፈ ባሮክ)
