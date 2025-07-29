@@ -32,7 +32,7 @@
 29. [x] Proverbs (መጽሐፈ ምሳሌ)
 30. [x] Book of Admonition (መጽሐፈ ተግሳጽ)
 31. [x] Wisdom of Solomon (መጽሐፈ ጥበብ)
-32. [ ] Ecclesiastes (መጽሐፈ መክብብ)
+32. [x] Ecclesiastes (መጽሐፈ መክብብ)
 33. [ ] Song of Solomon (መኃልየ መኃልይ ዘሰሎሞን)
 34. [ ] Sirach (መጽሐፈ ሲራክ)
 35. [ ] Isaiah (ትንቢተ ኢሳይያስ)
