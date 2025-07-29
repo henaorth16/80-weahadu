@@ -29,7 +29,7 @@
 26. [x] 3 Maccabees (መጽሐፈ መቃብያን ሳልስ)
 27. [x] Job (መጽሐፈ ኢዮብ)
 28. [x] Psalms (መዝሙረ ዳዊት)
-29. [ ] Proverbs (መጽሐፈ ምሳሌ)
+29. [x] Proverbs (መጽሐፈ ምሳሌ)
 30. [ ] መጽሐፈ ተግሳጽ
 31. [ ] Wisdom of Solomon (መጽሐፈ ጥበብ)
 32. [ ] Ecclesiastes (መጽሐፈ መክብብ)
