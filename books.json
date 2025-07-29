@@ -231,6 +231,13 @@
     "testament": "old"
   },
   {
+    "number": 34,
+    "en_name": "Sirach",
+    "am_name": "መጽሐፈ ሲራክ",
+    "filename": "34-sirach.json",
+    "testament": "old"
+  },
+  {
     "number": 46,
     "en_name": "Isaiah",
     "am_name": "ትንቢተ ኢሳይያስ",
