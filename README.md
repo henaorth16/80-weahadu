@@ -41,7 +41,7 @@
 38. [x] Lamentations (ሰቆቃወ ኤርምያስ)
 39. [x] Teref Ermias (ተረፈ ኤርምያስ)
 40. [x] Teref Baruch (ተረፈ ባሮክ)
-41. [ ] Ezekiel (ትንቢተ ሕዝቅኤል)
+41. [x] Ezekiel (ትንቢተ ሕዝቅኤል)
 42. [ ] Daniel (ትንቢተ ዳንኤል)
 43. [ ] Hosea (ትንቢተ ሆሴዕ)
 44. [ ] Amos (ትንቢተ አሞጽ)
