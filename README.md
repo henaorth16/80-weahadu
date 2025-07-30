@@ -40,7 +40,7 @@
 37. [x] Baruch (መጽሐፈ ባሮክ)
 38. [x] Lamentations (ሰቆቃወ ኤርምያስ)
 39. [x] Teref Ermias (ተረፈ ኤርምያስ)
-40. [ ] ተረፈ ባሮክ
+40. [x] Teref Baruch (ተረፈ ባሮክ)
 41. [ ] Ezekiel (ትንቢተ ሕዝቅኤል)
 42. [ ] Daniel (ትንቢተ ዳንኤል)
 43. [ ] Hosea (ትንቢተ ሆሴዕ)
