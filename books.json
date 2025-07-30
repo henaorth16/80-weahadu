@@ -252,6 +252,13 @@
     "testament": "old"
   },
   {
+    "number": 37,
+    "en_name": "Baruch",
+    "am_name": "መጽሐፈ ባሮክ",
+    "filename": "37-Baruch.json",
+    "testament": "old"
+  },
+  {
     "number": 48,
     "en_name": "Lamentations",
     "am_name": "ሰቆቃወ ኤርምያስ",
