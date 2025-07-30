@@ -35,7 +35,7 @@
 32. [x] Ecclesiastes (መጽሐፈ መክብብ)
 33. [x] Song of Solomon (መኃልየ መኃልይ ዘሰሎሞን)
 34. [x] Sirach (መጽሐፈ ሲራክ)
-35. [ ] Isaiah (ትንቢተ ኢሳይያስ)
+35. [x] Isaiah (ትንቢተ ኢሳይያስ)
 36. [ ] Jeremiah (ትንቢተ ኤርምያስ)
 37. [ ] Baruch (መጽሐፈ ባሮክ)
 38. [ ] Lamentations (ሰቆቃወ ኤርምያስ)
