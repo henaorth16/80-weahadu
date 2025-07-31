@@ -50,7 +50,7 @@
 47. [x] Obadiah (ትንቢተ አብድዩ)
 48. [x] Jonah (ትንቢተ ዮናስ)
 49. [x] Nahum (ትንቢተ ናሆም)
-50. [ ] Habakkuk (ትንቢተ ዕንባቆም)
+50. [x] Habakkuk (ትንቢተ ዕንባቆም)
 51. [ ] Zephaniah (ትንቢተ ሶፎንያስ)
 52. [ ] Haggai (ትንቢተ ሐጌ)
 53. [ ] Zechariah (ትንቢተ ዘካርያስ)
