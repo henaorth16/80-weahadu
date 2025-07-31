@@ -54,7 +54,7 @@
 51. [x] Zephaniah (ትንቢተ ሶፎንያስ)
 52. [x] Haggai (ትንቢተ ሐጌ)
 53. [x] Zechariah (ትንቢተ ዘካርያስ)
-54. [ ] Malachi (ትንቢተ ሚልክያ)
+54. [x] Malachi (ትንቢተ ሚልክያ)
 
 ---
 ### New Testament
