@@ -53,7 +53,7 @@
 50. [x] Habakkuk (ትንቢተ ዕንባቆም)
 51. [x] Zephaniah (ትንቢተ ሶፎንያስ)
 52. [x] Haggai (ትንቢተ ሐጌ)
-53. [ ] Zechariah (ትንቢተ ዘካርያስ)
+53. [x] Zechariah (ትንቢተ ዘካርያስ)
 54. [ ] Malachi (ትንቢተ ሚልክያ)
 
 ---
