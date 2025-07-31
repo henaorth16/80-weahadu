@@ -51,7 +51,7 @@
 48. [x] Jonah (ትንቢተ ዮናስ)
 49. [x] Nahum (ትንቢተ ናሆም)
 50. [x] Habakkuk (ትንቢተ ዕንባቆም)
-51. [ ] Zephaniah (ትንቢተ ሶፎንያስ)
+51. [x] Zephaniah (ትንቢተ ሶፎንያስ)
 52. [ ] Haggai (ትንቢተ ሐጌ)
 53. [ ] Zechariah (ትንቢተ ዘካርያስ)
 54. [ ] Malachi (ትንቢተ ሚልክያ)
