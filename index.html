@@ -29,19 +29,24 @@
     <style>
         :root {
             /* Light Theme */
-            --bg-primary-light: #F9F9F9;
-            --text-primary-light: #1f1f1f;
-            --nav-bg-light: #FFFFFF;
-            --nav-text-light: #1f1f1f;
-            --border-color-light: rgba(0, 0, 0, 0.05);
-            --accent-color-light: #A98344;
+            --bg-primary-light: #fcfcfc;
+            --bg-secondary-light: #ffffff;
+            --text-primary-light: #1a1a1a;
+            --text-secondary-light: #666666;
+            --nav-bg-light: rgba(255, 255, 255, 0.8);
+            --border-color-light: rgba(0, 0, 0, 0.08);
+            --accent-color-light: #c29b40;
+            --hover-bg-light: rgba(0, 0, 0, 0.03);
+
             /* Dark Theme */
             --bg-primary-dark: #121212;
+            --bg-secondary-dark: #1e1e1e;
             --text-primary-dark: #e1e1e1;
-            --nav-bg-dark: #000000;
-            --nav-text-dark: #e1e1e1;
-            --border-color-dark: rgba(255, 255, 255, 0.06);
-            --accent-color-dark: #D4AF37;
+            --text-secondary-dark: #a0a0a0;
+            --nav-bg-dark: rgba(18, 18, 18, 0.8);
+            --border-color-dark: rgba(255, 255, 255, 0.1);
+            --accent-color-dark: #d4af37;
+            --hover-bg-dark: rgba(255, 255, 255, 0.05);
         }
 
         /* Base */
@@ -56,9 +61,19 @@
             font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Serif Ethiopic", serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             background-color: var(--bg-primary-light);
             color: var(--text-primary-light);
+        }
+
+        /* Hide Scrollbars but keep functionality */
+        * {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        *::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
 
         /* --- App Top Header --- */
@@ -67,76 +82,92 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 60px;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 16px;
+            padding: 0 24px;
             background-color: var(--nav-bg-light);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color-light);
-            z-index: 100;
-            color: var(--nav-text-light);
-            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
 
         #app-title {
             font-family: 'Inter', sans-serif;
             font-weight: 800;
-            font-size: 20px;
+            font-size: 22px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        #app-title h1 {
+            font-size: 20px;
+            margin: 0;
         }
 
         #app-controls {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
 
         .control-btn {
             background: transparent;
-            border: none;
+            border: 1px solid transparent;
             cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
+            padding: 10px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--nav-text-light);
-            transition: background-color 0.2s ease, color 0.2s ease;
+            color: var(--text-primary-light);
+            transition: all 0.2s ease;
         }
 
         .control-btn:hover {
-            background-color: rgba(0, 0, 0, 0.05);
+            background-color: var(--hover-bg-light);
+            border-color: var(--border-color-light);
         }
 
         #font-size-controls {
             display: flex;
             align-items: center;
-            gap: 4px;
-            font-weight: 600;
+            background: var(--hover-bg-light);
+            border-radius: 14px;
+            padding: 4px;
+            gap: 2px;
+        }
+
+        #font-size-controls .control-btn {
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 10px;
         }
 
         /* App container now sits below the fixed header */
         #app-container {
             height: 100vh;
             display: flex;
-            padding-top: 60px;
+            padding-top: 64px;
             box-sizing: border-box;
         }
 
         /* NAV / sidebar */
         #nav-panel {
-            width: 320px;
-            min-width: 240px;
-            background: var(--nav-bg-dark);
-            color: var(--nav-text-dark);
+            width: 380px;
+            min-width: 320px;
+            background: var(--bg-secondary-light);
             display: flex;
             flex-direction: column;
-            border-right: 1px solid var(--border-color-dark);
+            border-right: 1px solid var(--border-color-light);
             z-index: 60;
-            transition: transform .28s ease;
+            transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Navigation Lists */
@@ -144,59 +175,81 @@
         #chapters-list {
             list-style: none;
             margin: 0;
-            padding: 0;
-            font-family: 'Noto Serif Ethiopic', serif;
+            padding: 8px 0;
+            font-family: 'Inter', system-ui, sans-serif;
             flex-grow: 1;
             overflow-y: auto;
         }
 
         #books-list li,
         #chapters-list li {
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border-color-dark);
+            padding: 12px 24px;
+            margin: 2px 12px;
+            border-radius: 10px;
             cursor: pointer;
-            color: var(--nav-text-dark);
-            font-size: 18px;
-            transition: background-color 0.2s, color 0.2s;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            color: var(--text-primary-light);
         }
 
         #books-list li:hover,
         #chapters-list li:hover {
-            background: rgba(255, 255, 255, 0.04);
+            background-color: var(--hover-bg-light);
+            padding-left: 28px;
         }
 
         .active-item {
-            background: var(--accent-color-dark) !important;
-            color: #000 !important;
+            background: var(--accent-color-light) !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(194, 155, 64, 0.25);
             font-weight: 700;
         }
 
         /* MAIN reading area */
         main {
             flex: 1;
-            overflow: auto;
-            padding: 36px 56px;
+            overflow-y: auto;
+            padding: 48px 80px;
+            background-color: var(--bg-primary-light);
+            scroll-behavior: smooth;
         }
 
         #main-content-area {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         #chapter-title {
             font-family: 'Noto Serif Ethiopic', serif;
-            font-size: 32px;
+            font-size: 42px;
             font-weight: 800;
-            margin-bottom: 24px;
+            margin-bottom: 40px;
+            color: var(--accent-color-light);
+            letter-spacing: -1px;
         }
 
         #text-container {
             font-family: 'Noto Serif Ethiopic', serif;
-            font-size: 20px;
-            line-height: 1.8;
-            transition: font-size 0.2s ease;
+            font-size: 22px;
+            line-height: 2;
+            transition: font-size 0.3s ease;
         }
 
+        #text-container p {
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color-light);
+        }
+
+        /* DARK MODE STYLES */
         /* DARK MODE STYLES */
         body.dark-mode {
             background-color: var(--bg-primary-dark);
@@ -206,35 +259,91 @@
         body.dark-mode #app-header {
             background-color: var(--nav-bg-dark);
             border-bottom: 1px solid var(--border-color-dark);
-            color: var(--nav-text-dark);
+        }
+
+        body.dark-mode #nav-panel {
+            background-color: var(--bg-secondary-dark);
+            border-right-color: var(--border-color-dark);
+        }
+
+        body.dark-mode main {
+            background-color: var(--bg-primary-dark);
         }
 
         body.dark-mode .control-btn {
-            color: var(--nav-text-dark);
+            color: var(--text-primary-dark);
         }
 
         body.dark-mode .control-btn:hover {
-            background-color: rgba(255, 255, 255, 0.08);
+            background-color: var(--hover-bg-dark);
+            border-color: var(--border-color-dark);
+        }
+
+        body.dark-mode #font-size-controls {
+            background: var(--hover-bg-dark);
+        }
+
+        body.dark-mode #books-list li,
+        body.dark-mode #chapters-list li {
+            color: var(--text-primary-dark);
+        }
+
+        body.dark-mode #books-list li:hover,
+        body.dark-mode #chapters-list li:hover {
+            background-color: var(--hover-bg-dark);
+        }
+
+        body.dark-mode .active-item {
+            background: var(--accent-color-dark) !important;
+            color: #000000 !important;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        body.dark-mode #chapter-title {
+            color: var(--accent-color-dark);
+        }
+
+        body.dark-mode .section-title {
+            border-bottom-color: var(--border-color-dark);
         }
 
         /* Responsive Design */
         @media (max-width: 820px) {
+            #mobile-menu-btn {
+                display: flex !important;
+            }
+
             #nav-panel {
-                position: absolute;
+                position: fixed;
+                top: 64px;
                 left: 0;
-                top: 0;
                 bottom: 0;
+                width: 85%;
+                max-width: 320px;
                 transform: translateX(-100%);
-                z-index: 500;
+                z-index: 2000;
+                border-top: 1px solid var(--border-color-light);
             }
 
             #nav-panel.open {
                 transform: translateX(0);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+                box-shadow: 20px 0 50px rgba(0, 0, 0, 0.2);
+            }
+
+            body.dark-mode #nav-panel.open {
+                box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
             }
 
             main {
-                padding: 24px 16px;
+                padding: 32px 20px;
+            }
+
+            #chapter-title {
+                font-size: 32px;
+            }
+
+            #text-container {
+                font-size: 18px;
             }
         }
     </style>
@@ -243,9 +352,18 @@
 <body>
     <!-- New Top Header -->
     <header id="app-header">
-        <div id="app-title">
-            <span>📖</span>
-            <h1>የአማርኛ መጽሐፍ ቅዱስ</h1>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <button id="mobile-menu-btn" aria-label="Menu" title="Menu" class="control-btn" style="display: none;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+            <div id="app-title">
+                <span style="font-size: 24px;">📖</span>
+                <h1>የአማርኛ መጽሐፍ ቅዱስ</h1>
+            </div>
         </div>
         <div id="app-controls">
             <div id="font-size-controls">
@@ -259,35 +377,25 @@
         </div>
     </header>
 
-    <!-- Mobile menu toggle -->
-    <button id="mobile-menu-btn" aria-label="መምሪያ ክፈት/ዝጋ" title="የስልክ ማዕከል" class="control-btn"
-        style="position:fixed; top:8px; left:8px; z-index:501; background: #111; color: white; display: none;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-    </button>
+
 
 
     <div id="app-container">
         <!-- NAV -->
         <nav id="nav-panel" aria-label="መጽሐፍ እና ምዕራፎች">
             <div
-                style="height:60px; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid var(--border-color-dark);">
-                <h2 style="font-size: 18px; font-weight: 700;">መጽሐፍ ማጣሪያ</h2>
+                style="height:64px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid var(--border-color-light);">
+                <h2 style="font-size: 18px; font-weight: 700; letter-spacing: -0.2px;">መጽሐፍት</h2>
             </div>
 
             <div style="display:flex; flex:1; overflow:hidden;">
                 <aside id="books-sidebar"
-                    style="width:50%; border-right:1px solid var(--border-color-dark); display:flex; flex-direction:column;">
-                    <div style="display:flex; align-items:center; border-bottom:1px solid var(--border-color-dark);">
-                        <button id="old-testament-tab" class="w-1/2 p-3 text-left"
-                            style="background:transparent; border:none; font-weight:600; color: inherit;">ብሉይ
-                            ኪዳን</button>
-                        <button id="new-testament-tab" class="w-1/2 p-3 text-left"
-                            style="background:transparent; border:none; font-weight:600; color: inherit;">አዲስ
-                            ኪዳን</button>
+                    style="width:50%; border-right:1px solid var(--border-color-light); display:flex; flex-direction:column;">
+                    <div style="display:flex; align-items:center; border-bottom:1px solid var(--border-color-light); padding: 8px;">
+                        <button id="old-testament-tab" class="w-1/2 p-3 text-center"
+                            style="background:transparent; border:none; font-weight:700; border-radius: 8px; cursor: pointer; transition: all 0.2s;">ብሉይ</button>
+                        <button id="new-testament-tab" class="w-1/2 p-3 text-center"
+                            style="background:transparent; border:none; font-weight:700; border-radius: 8px; cursor: pointer; transition: all 0.2s;">አዲስ</button>
                     </div>
                     <ul id="books-list"></ul>
                 </aside>
@@ -513,13 +621,21 @@
                 currentBookNumber = -1;
                 currentBookData = null;
 
-                const activeTabStyle = `background-color: var(--accent-color-dark); color: black;`;
+                const isActiveDark = body.classList.contains('dark-mode');
+                const activeBg = isActiveDark ? 'var(--accent-color-dark)' : 'var(--accent-color-light)';
+                const activeColor = isActiveDark ? '#000000' : '#ffffff';
+                const inactiveColor = isActiveDark ? 'var(--text-secondary-dark)' : 'var(--text-secondary-light)';
+
                 if (testamentToShow === 'old') {
-                    oldTestamentTab.style = activeTabStyle;
-                    newTestamentTab.style = '';
+                    oldTestamentTab.style.backgroundColor = activeBg;
+                    oldTestamentTab.style.color = activeColor;
+                    newTestamentTab.style.backgroundColor = 'transparent';
+                    newTestamentTab.style.color = inactiveColor;
                 } else {
-                    newTestamentTab.style = activeTabStyle;
-                    oldTestamentTab.style = '';
+                    newTestamentTab.style.backgroundColor = activeBg;
+                    newTestamentTab.style.color = activeColor;
+                    oldTestamentTab.style.backgroundColor = 'transparent';
+                    oldTestamentTab.style.color = inactiveColor;
                 }
             }
 
