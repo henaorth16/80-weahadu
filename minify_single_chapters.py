@@ -17,7 +17,8 @@ def extract_order(file_path: str) -> int:
 
 def collect_input_files(input_dir: str) -> List[str]:
     files = glob.glob(os.path.join(input_dir, "*.json"))
-    files.sort(key=lambda path: (extract_order(path), os.path.basename(path).lower()))
+    files.sort(key=lambda path: (extract_order(
+        path), os.path.basename(path).lower()))
     return files
 
 
@@ -42,11 +43,17 @@ def minify_chapters(input_dir: str, output_dir: str, index_name: str) -> Tuple[i
                 data = json.load(src_file)
 
             with open(dst_path, "w", encoding="utf-8") as dst_file:
-                json.dump(data, dst_file, ensure_ascii=False, separators=(",", ":"))
+                json.dump(data, dst_file, ensure_ascii=False,
+                          separators=(",", ":"))
 
             index_entries.append(
                 {
-                    "order": order,
+                    "book_number": data.get("book_number", order),
+                    "book_name_am": data.get("book_name_am", ""),
+                    "book_name_en": data.get("book_name_en", ""),
+                    "book_short_name_am": data.get("book_short_name_am", ""),
+                    "book_short_name_en": data.get("book_short_name_en", ""),
+                    "testament": data.get("testament", ""),
                     "file": file_name,
                 }
             )
@@ -63,7 +70,8 @@ def minify_chapters(input_dir: str, output_dir: str, index_name: str) -> Tuple[i
     }
 
     with open(index_path, "w", encoding="utf-8") as index_file:
-        json.dump(index_payload, index_file, ensure_ascii=False, separators=(",", ":"))
+        json.dump(index_payload, index_file,
+                  ensure_ascii=False, separators=(",", ":"))
 
     return len(input_files), written_count
 
@@ -72,10 +80,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Create minified single-chapter JSON files and an index file."
     )
-    parser.add_argument("--input-dir", default="data/am", help="Directory with source JSON files")
+    parser.add_argument("--input-dir", default="data/am",
+                        help="Directory with source JSON files")
     parser.add_argument(
         "--output-dir",
-        default=os.path.join("minified", "single chapter"),
+        default=os.path.join("minified", "singleChapter"),
         help="Directory where minified chapter files are written",
     )
     parser.add_argument(
@@ -85,7 +94,8 @@ def main() -> None:
     )
 
     args = parser.parse_args()
-    total_files, written_files = minify_chapters(args.input_dir, args.output_dir, args.index_file)
+    total_files, written_files = minify_chapters(
+        args.input_dir, args.output_dir, args.index_file)
 
     print(
         f"Processed {total_files} files from {args.input_dir}; "
