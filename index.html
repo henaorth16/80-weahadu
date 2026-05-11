@@ -22,26 +22,32 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Ethiopic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Ethiopic:wght@400;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
             /* Brand Colors */
-            --primary-burgundy: #6B1F2A; /* Deep Burgundy */
-            --accent-gold: #F4D38A; /* Gold / Sand */
+            --primary-burgundy: #6B1F2A;
+            /* Deep Burgundy */
+            --accent-gold: #F4D38A;
+            /* Gold / Sand */
 
             /* Parchment mode */
-            --parchment-bg: #EFE9DF; /* soft off-white */
+            --parchment-bg: #EFE9DF;
+            /* soft off-white */
             --surface-white: #ffffff;
 
             /* Text */
-            --text-primary: #241914; /* dark warm gray for readability */
+            --text-primary: #241914;
+            /* dark warm gray for readability */
             --text-secondary: #6b5a52;
 
             /* Navigation */
             --nav-bg-light: rgba(239, 233, 223, 0.95);
-            --border-color-light: rgba(107,90,82,0.12);
-            --hover-bg-light: rgba(0,0,0,0.03);
+            --border-color-light: rgba(107, 90, 82, 0.12);
+            --hover-bg-light: rgba(0, 0, 0, 0.03);
 
             /* Dark theme variants (kept compatible) */
             --bg-primary-dark: #121212;
@@ -51,6 +57,11 @@
             --nav-bg-dark: rgba(18, 18, 18, 0.9);
             --border-color-dark: rgba(255, 255, 255, 0.06);
             --hover-bg-dark: rgba(255, 255, 255, 0.03);
+
+            /* Warm dark "parchment" surface for nighttime reading */
+            --parchment-dark-bg: #1f1917; /* warm charcoal */
+            --parchment-dark-text: #EFE6D8; /* warm off-white text */
+            --parchment-dark-nav: rgba(31,25,23,0.95);
         }
 
         /* Base */
@@ -72,12 +83,15 @@
 
         /* Hide Scrollbars but keep functionality */
         * {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
         }
 
         *::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
+            display: none;
+            /* Chrome, Safari, Opera */
         }
 
         /* --- App Top Header --- */
@@ -166,7 +180,7 @@
         #nav-panel {
             width: 380px;
             min-width: 320px;
-            background: var(--surface-white);
+            background: var(--parchment-bg);
             display: flex;
             flex-direction: column;
             border-right: 1px solid var(--border-color-light);
@@ -194,7 +208,7 @@
             font-size: 16px;
             font-weight: 500;
             transition: all 0.2s ease;
-            color: var(--text-primary-light);
+            color: var(--text-primary);
         }
 
         #books-list li:hover,
@@ -206,7 +220,7 @@
         .active-item {
             background: var(--primary-burgundy) !important;
             color: var(--accent-gold) !important;
-            box-shadow: 0 6px 18px rgba(107,31,42,0.18);
+            box-shadow: 0 6px 18px rgba(107, 31, 42, 0.18);
             font-weight: 700;
         }
 
@@ -267,16 +281,16 @@
         }
 
         body.dark-mode #nav-panel {
-            background-color: var(--bg-secondary-dark);
+            background-color: var(--parchment-dark-nav);
             border-right-color: var(--border-color-dark);
         }
 
         body.dark-mode main {
-            background-color: var(--bg-primary-dark);
+            background-color: var(--parchment-dark-bg);
         }
 
         body.dark-mode .control-btn {
-            color: var(--text-primary-dark);
+            color: var(--parchment-dark-text);
         }
 
         body.dark-mode .control-btn:hover {
@@ -290,26 +304,35 @@
 
         body.dark-mode #books-list li,
         body.dark-mode #chapters-list li {
-            color: var(--text-primary-dark);
+            color: var(--parchment-dark-text);
         }
 
         body.dark-mode #books-list li:hover,
         body.dark-mode #chapters-list li:hover {
-            background-color: var(--hover-bg-dark);
+            background-color: rgba(255,255,255,0.02);
         }
 
         body.dark-mode .active-item {
             background: var(--primary-burgundy) !important;
             color: #000000 !important;
-            box-shadow: 0 4px 12px rgba(107,31,42,0.35);
+            box-shadow: 0 4px 12px rgba(107, 31, 42, 0.35);
         }
 
         body.dark-mode #chapter-title {
-            color: var(--accent-color-dark);
+            color: var(--accent-gold);
         }
 
         body.dark-mode .section-title {
             border-bottom-color: var(--border-color-dark);
+        }
+
+        body.dark-mode #text-container {
+            color: var(--parchment-dark-text);
+        }
+
+        body.dark-mode #app-header {
+            background-color: var(--parchment-dark-nav);
+            border-bottom-color: rgba(255,255,255,0.04);
         }
 
         /* Responsive Design */
@@ -359,7 +382,8 @@
     <header id="app-header">
         <div style="display: flex; align-items: center; gap: 8px;">
             <button id="mobile-menu-btn" aria-label="Menu" title="Menu" class="control-btn" style="display: none;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round">
                     <line x1="3" y1="12" x2="21" y2="12" />
                     <line x1="3" y1="6" x2="21" y2="6" />
                     <line x1="3" y1="18" x2="21" y2="18" />
@@ -396,7 +420,8 @@
             <div style="display:flex; flex:1; overflow:hidden;">
                 <aside id="books-sidebar"
                     style="width:50%; border-right:1px solid var(--border-color-light); display:flex; flex-direction:column;">
-                    <div style="display:flex; align-items:center; border-bottom:1px solid var(--border-color-light); padding: 8px;">
+                    <div
+                        style="display:flex; align-items:center; border-bottom:1px solid var(--border-color-light); padding: 8px;">
                         <button id="old-testament-tab" class="w-1/2 p-3 text-center"
                             style="background:transparent; border:none; font-weight:700; border-radius: 8px; cursor: pointer; transition: all 0.2s;">ብሉይ</button>
                         <button id="new-testament-tab" class="w-1/2 p-3 text-center"
