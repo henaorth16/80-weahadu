@@ -22,31 +22,35 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Serif+Ethiopic:wght@400;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Ethiopic:wght@400;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Light Theme */
-            --bg-primary-light: #fcfcfc;
-            --bg-secondary-light: #ffffff;
-            --text-primary-light: #1a1a1a;
-            --text-secondary-light: #666666;
-            --nav-bg-light: rgba(255, 255, 255, 0.8);
-            --border-color-light: rgba(0, 0, 0, 0.08);
-            --accent-color-light: #c29b40;
-            --hover-bg-light: rgba(0, 0, 0, 0.03);
+            /* Brand Colors */
+            --primary-burgundy: #6B1F2A; /* Deep Burgundy */
+            --accent-gold: #F4D38A; /* Gold / Sand */
 
-            /* Dark Theme */
+            /* Parchment mode */
+            --parchment-bg: #EFE9DF; /* soft off-white */
+            --surface-white: #ffffff;
+
+            /* Text */
+            --text-primary: #241914; /* dark warm gray for readability */
+            --text-secondary: #6b5a52;
+
+            /* Navigation */
+            --nav-bg-light: rgba(239, 233, 223, 0.95);
+            --border-color-light: rgba(107,90,82,0.12);
+            --hover-bg-light: rgba(0,0,0,0.03);
+
+            /* Dark theme variants (kept compatible) */
             --bg-primary-dark: #121212;
             --bg-secondary-dark: #1e1e1e;
             --text-primary-dark: #e1e1e1;
             --text-secondary-dark: #a0a0a0;
-            --nav-bg-dark: rgba(18, 18, 18, 0.8);
-            --border-color-dark: rgba(255, 255, 255, 0.1);
-            --accent-color-dark: #d4af37;
-            --hover-bg-dark: rgba(255, 255, 255, 0.05);
+            --nav-bg-dark: rgba(18, 18, 18, 0.9);
+            --border-color-dark: rgba(255, 255, 255, 0.06);
+            --hover-bg-dark: rgba(255, 255, 255, 0.03);
         }
 
         /* Base */
@@ -58,12 +62,12 @@
         }
 
         body {
-            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Serif Ethiopic", serif;
+            font-family: 'Noto Sans Ethiopic', 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: var(--bg-primary-light);
-            color: var(--text-primary-light);
+            background-color: var(--surface-white);
+            color: var(--text-primary);
         }
 
         /* Hide Scrollbars but keep functionality */
@@ -125,7 +129,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-primary-light);
+            color: var(--text-primary);
             transition: all 0.2s ease;
         }
 
@@ -162,7 +166,7 @@
         #nav-panel {
             width: 380px;
             min-width: 320px;
-            background: var(--bg-secondary-light);
+            background: var(--surface-white);
             display: flex;
             flex-direction: column;
             border-right: 1px solid var(--border-color-light);
@@ -200,9 +204,9 @@
         }
 
         .active-item {
-            background: var(--accent-color-light) !important;
-            color: #ffffff !important;
-            box-shadow: 0 4px 12px rgba(194, 155, 64, 0.25);
+            background: var(--primary-burgundy) !important;
+            color: var(--accent-gold) !important;
+            box-shadow: 0 6px 18px rgba(107,31,42,0.18);
             font-weight: 700;
         }
 
@@ -211,7 +215,7 @@
             flex: 1;
             overflow-y: auto;
             padding: 48px 80px;
-            background-color: var(--bg-primary-light);
+            background-color: var(--parchment-bg);
             scroll-behavior: smooth;
         }
 
@@ -221,19 +225,20 @@
         }
 
         #chapter-title {
-            font-family: 'Noto Serif Ethiopic', serif;
+            font-family: 'Noto Sans Ethiopic', serif;
             font-size: 42px;
             font-weight: 800;
             margin-bottom: 40px;
-            color: var(--accent-color-light);
+            color: var(--primary-burgundy);
             letter-spacing: -1px;
         }
 
         #text-container {
-            font-family: 'Noto Serif Ethiopic', serif;
+            font-family: 'Noto Sans Ethiopic', serif;
             font-size: 22px;
             line-height: 2;
             transition: font-size 0.3s ease;
+            color: var(--text-primary);
         }
 
         #text-container p {
@@ -294,9 +299,9 @@
         }
 
         body.dark-mode .active-item {
-            background: var(--accent-color-dark) !important;
+            background: var(--primary-burgundy) !important;
             color: #000000 !important;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 12px rgba(107,31,42,0.35);
         }
 
         body.dark-mode #chapter-title {
@@ -361,7 +366,7 @@
                 </svg>
             </button>
             <div id="app-title">
-                <span style="font-size: 24px;">📖</span>
+                <span style="font-size: 26px; color: var(--primary-burgundy);">✠</span>
                 <h1>የአማርኛ መጽሐፍ ቅዱስ</h1>
             </div>
         </div>
