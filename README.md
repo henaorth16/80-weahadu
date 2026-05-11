@@ -85,3 +85,93 @@
 79. [x] James (የያዕቆብ መልእክት)
 80. [x] Jude (የይሁዳ መልእክት)
 81. [x] Revelation (የዮሐንስ ራእይ)
+
+---
+
+## Single Chapter Output
+
+The `minified/singleChapter/` folder contains one minified JSON file per book, plus an `index.json` file that can be used to build the menu or load the books in order.
+
+### Folder contents
+
+Each book file keeps the same numeric order as the source data, for example:
+
+1. `01-genesis.json`
+2. `02-exodus.json`
+3. `03-leviticus.json`
+
+The files are minified, so they are compact and faster to load than the original source files.
+
+### Using the JSON files
+
+If you want the full content for one book, load the matching file from `minified/singleChapter/`.
+
+Each book JSON file has this basic structure:
+
+```json
+{
+	"book_number": 1,
+	"book_name_am": "ኦሪት ዘፍጥረት",
+	"book_short_name_am": "ዘፍ",
+	"book_name_en": "Genesis",
+	"book_short_name_en": "Gen",
+	"testament": "old",
+	"chapters": [
+		{
+			"chapter": 1,
+			"sections": []
+		}
+	]
+}
+```
+
+Fields used by the menu:
+
+- `book_number`: the canonical book order
+- `book_name_am`: the Amharic book title
+- `book_name_en`: the English book title
+- `book_short_name_am`: the short Amharic label
+- `book_short_name_en`: the short English label
+- `testament`: `old` or `new`
+- `file`: the filename inside `minified/singleChapter/`
+
+### Using the index file
+
+The `index.json` file is useful when you want to build a list of books without opening every chapter file. It contains:
+
+- `count`: total number of chapter files found
+- `files`: an array of menu entries in order
+
+Example index entry:
+
+```json
+{
+	"book_number": 1,
+	"book_name_am": "ኦሪት ዘፍጥረት",
+	"book_name_en": "Genesis",
+	"book_short_name_am": "ዘፍ",
+	"book_short_name_en": "Gen",
+	"testament": "old",
+	"file": "01-genesis.json"
+}
+```
+
+### Script usage
+
+Run the generator from the project root:
+
+```bash
+/home/melaku/EOTCOpenSource/81-ahadu/.venv/bin/python minify_single_chapters.py
+```
+
+Optional arguments:
+
+- `--input-dir`: source directory, defaults to `data/am`
+- `--output-dir`: output directory, defaults to `minified/singleChapter`
+- `--index-file`: index filename, defaults to `index.json`
+
+Example with custom paths:
+
+```bash
+/home/melaku/EOTCOpenSource/81-ahadu/.venv/bin/python minify_single_chapters.py --input-dir data/am --output-dir minified/singleChapter --index-file index.json
+```
