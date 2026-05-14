@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EOTC Bible እየተከፈተ ነው…</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      background: #fdf8f0;
+      color: #2c1a0e;
+      text-align: center;
+    }
+    h1 { font-size: 1.4rem; margin-bottom: 12px; }
+    p  { font-size: 1rem; color: #6b5344; margin-bottom: 24px; }
+    a.btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #8b4513;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    #opening { display: block; }
+    #fallback { display: none; }
+  </style>
+</head>
+<body>
+  <div id="opening">
+    <h1>መጽሐፍ ቅዱስ</h1>
+    <p>EOTC Bible app እየተከፈተ ነው…</p>
+  </div>
+  <div id="fallback">
+    <h1>መጽሐፍ ቅዱስ</h1>
+    <p>App አልተጫነም። ከGoogle Play ያውርዱ።</p>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=org.nehemiah_osc.bibleflutter">
+      Google Play ላይ ያውርዱ
+    </a>
+  </div>
+
+  <script>
+    (function () {
+      var slug = window.location.pathname.replace(/^\/openinapp\/?/, '');
+      if (!slug) { showFallback(); return; }
+
+      // Try opening the app via the custom scheme
+      window.location.href = 'eotcbible://openinapp/' + slug;
+
+      // If app not installed, the navigation above silently fails;
+      // show the download prompt after a short wait.
+      setTimeout(showFallback, 2500);
+
+      function showFallback() {
+        document.getElementById('opening').style.display = 'none';
+        document.getElementById('fallback').style.display  = 'block';
+      }
+    })();
+  </script>
+</body>
+</html>

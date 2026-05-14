@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "org.nehemiah_osc.bibleflutter",
+    "sha256_cert_fingerprints": ["E7:C4:CC:A1:B3:F9:7D:5D:75:52:E1:49:8F:79:C9:86:14:11:D5:52:3B:59:5C:05:45:1F:6F:71:57:E2:3E:C1"]
+  }
+}]
